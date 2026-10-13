@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import unittest
 
-from cora_mcp.catalog import manifest, match_needs, needs, overview, pulse, read_text, search
+from cora_mcp.catalog import capital_build_path, manifest, match_needs, needs, overview, pulse, read_text, search
 
 
 class CatalogTests(unittest.TestCase):
@@ -46,6 +46,12 @@ class CatalogTests(unittest.TestCase):
         self.assertIsNone(data["cora_calculated"])
         self.assertIsNone(data["cora_available"])
         self.assertEqual(data["leaderboard"], [])
+
+    def test_capital_path_starts_with_evidence_not_currency(self) -> None:
+        data = capital_build_path()
+        self.assertEqual(data["priority_needs"][0]["id"], "0002-contribution-receipts")
+        self.assertEqual(data["ordered_phases"][0], "evidence foundation")
+        self.assertIn("Do not issue CORA", data["boundary"])
 
 
 if __name__ == "__main__":

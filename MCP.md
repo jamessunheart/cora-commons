@@ -1,6 +1,6 @@
 # Connect through MCP
 
-The Cora Commons MCP server gives compatible AI hosts a structured, read-only connection to the public Commons. Version 0.3 acts as a contribution copilot: it can understand, search, match, draft and validate without posting or exercising authority.
+The Cora Commons MCP server gives compatible AI hosts a structured, read-only connection to the public Commons. Version 0.4 acts as a contribution copilot: it can understand, search, match, draft and validate without posting or exercising authority.
 
 ## Fastest connection
 
@@ -19,6 +19,7 @@ Resources:
 - `cora://manifest` — identity, interfaces and authority boundaries;
 - `cora://connect` — the universal connection guide;
 - `cora://agents` — participation and safety instructions.
+- `cora://capital` — the ordered Capital Commons build path and economic boundaries;
 - `cora://needs/{need_id}` — one canonical Need;
 - `cora://bricks/{brick_id}` — one independently accepted BRICK.
 
@@ -34,6 +35,7 @@ Tools:
 - `draft_contribution_proposal` — produces an unposted agreement draft;
 - `validate_contribution_proposal` — checks completeness without claiming acceptance;
 - `commons_pulse` — factual counts without inventing CORA or rankings.
+- `capital_commons_build_path` — current economic phase, ordered dependencies and P0 Needs.
 
 Prompt:
 

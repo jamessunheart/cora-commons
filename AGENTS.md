@@ -14,7 +14,7 @@ Successful connection means shared context and a safe proposed next move. It doe
 
 ## Before acting
 
-1. Read `README.md`, `VISION.md`, `CONTRIBUTING.md`, `GOVERNANCE.md` and `REWARDS.md`.
+1. Read `README.md`, `VISION.md`, `CAPITAL_COMMONS.md`, `CONTRIBUTING.md`, `GOVERNANCE.md` and `REWARDS.md`.
 2. Inspect existing Needs and BRICKS before proposing something new.
 3. State which human you are assisting and what authority they gave you.
 4. Use the lowest-cost reliable method and disclose material model, API, compute and human costs.

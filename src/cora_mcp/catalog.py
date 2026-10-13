@@ -11,6 +11,7 @@ REPO_ROOT = Path(__file__).resolve().parents[2]
 PUBLIC_DOCUMENTS = (
     "README.md",
     "VISION.md",
+    "CAPITAL_COMMONS.md",
     "CONNECT.md",
     "AGENTS.md",
     "CONTRIBUTING.md",
@@ -195,5 +196,26 @@ def overview() -> dict[str, object]:
         "requires_human_approval": data["requires_human_approval"],
         "not_live": data["not_live"],
         "acceptance_principle": data["acceptance_principle"],
+        "capital_commons_phase": data["capital_commons_phase"],
+        "priority_needs": data["priority_needs"],
         "next_step": "Review open needs and propose one bounded contribution; wait for human approval before posting or building.",
+    }
+
+
+def capital_build_path() -> dict[str, object]:
+    data = manifest()
+    return {
+        "current_phase": data["capital_commons_phase"],
+        "roadmap": data["capital_commons_roadmap"],
+        "priority_needs": [need(need_id) for need_id in data["priority_needs"]],
+        "ordered_phases": [
+            "evidence foundation",
+            "coordination foundation",
+            "verified resource inventory",
+            "economic simulation",
+            "bounded funded or service-backed utility pilot",
+            "authenticated allocation and federation",
+        ],
+        "first_proof": "A newcomer and their agent deliver useful work, receive durable attribution, pass independent review and create something another participant reuses.",
+        "boundary": "Do not issue CORA, automate treasury actions or represent provisional calculations as available capital.",
     }

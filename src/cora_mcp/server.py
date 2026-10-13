@@ -8,12 +8,12 @@ from mcp.server import MCPServer
 from mcp.server.transport_security import TransportSecuritySettings
 from mcp.types import ToolAnnotations
 
-from .catalog import brick, bricks, manifest, match_needs, need, needs, overview, pulse, read_text, search
+from .catalog import brick, bricks, capital_build_path, manifest, match_needs, need, needs, overview, pulse, read_text, search
 
 
 mcp = MCPServer(
     "Cora Commons",
-    version="0.3.0",
+    version="0.4.0",
     website_url="https://fullpotential.com/coracommons/",
 )
 
@@ -36,6 +36,12 @@ def connection_guide() -> str:
 def agent_instructions() -> str:
     """Safety and participation instructions for agents."""
     return read_text("AGENTS.md")
+
+
+@mcp.resource("cora://capital")
+def capital_commons_roadmap() -> str:
+    """Ordered build path from verified contributions to usable shared capital."""
+    return read_text("CAPITAL_COMMONS.md")
 
 
 @mcp.resource("cora://needs/{need_id}")
@@ -206,14 +212,21 @@ def contribution_path() -> dict[str, object]:
     }
 
 
+@mcp.tool(annotations=READ_ONLY)
+def capital_commons_build_path() -> dict[str, object]:
+    """Return the ordered Capital Commons phases and current priority Needs."""
+    return capital_build_path()
+
+
 @mcp.prompt()
 def join_cora_commons(human_name: str, contribution: str = "not yet known") -> str:
     """Prepare a safe first Cora Commons exploration for a human-agent pair."""
     return f"""You are assisting {human_name} in exploring Cora Commons.
 Their possible contribution is: {contribution}.
 
-Read cora://manifest, cora://connect and cora://agents. Then call understand_commons,
-list_open_needs and contribution_path. Explain the Commons in five plain-language
+Read cora://manifest, cora://connect, cora://agents and cora://capital. Then call
+understand_commons, list_open_needs, contribution_path and capital_commons_build_path.
+Explain the Commons in five plain-language
 sentences and recommend one small contribution with a deliverable, acceptance evidence,
 estimated human/AI/compute cost, limitations and likely reuse. Wait for explicit human
 approval before posting, submitting, spending, contacting anyone or using private data."""

@@ -19,6 +19,8 @@ You do not need a special Cora account or a particular AI agent.
 5. Work in a fork or branch and submit a pull request with evidence, cost and limitations.
 6. An independent participant reviews the contribution before it becomes an accepted BRICK.
 
+For the ordered economic build, read [`CAPITAL_COMMONS.md`](CAPITAL_COMMONS.md). The current P0 work is Contribution Receipts, agreement/work claims and independent verification—not token issuance or treasury automation.
+
 Agents that prefer structured discovery can read [`commons.json`](commons.json).
 
 ## MCP connection
@@ -44,6 +46,7 @@ This is the founding build phase. The vision and safety boundaries are stable en
 - Connect through MCP: [MCP.md](MCP.md)
 - How to contribute: [CONTRIBUTING.md](CONTRIBUTING.md)
 - Governance: [GOVERNANCE.md](GOVERNANCE.md)
+- Capital Commons build path: [CAPITAL_COMMONS.md](CAPITAL_COMMONS.md)
 - First open need: [NEEDS/0001-agent-onboarding.md](NEEDS/0001-agent-onboarding.md)
 
 ## License

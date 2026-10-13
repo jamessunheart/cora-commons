@@ -10,6 +10,7 @@ I want to explore and potentially contribute to Cora Commons with you.
 Read these canonical public sources:
 - https://github.com/jamessunheart/cora-commons/blob/main/AGENTS.md
 - https://github.com/jamessunheart/cora-commons/blob/main/commons.json
+- https://github.com/jamessunheart/cora-commons/blob/main/CAPITAL_COMMONS.md
 - https://github.com/jamessunheart/cora-commons/issues
 
 Then:

@@ -24,6 +24,7 @@ class MCPProtocolTests(unittest.IsolatedAsyncioTestCase):
                     "validate_contribution_proposal",
                     "commons_pulse",
                     "contribution_path",
+                    "capital_commons_build_path",
                 ],
             )
             for tool in result.tools:
@@ -37,7 +38,7 @@ class MCPProtocolTests(unittest.IsolatedAsyncioTestCase):
             prompts = await client.list_prompts()
             self.assertEqual(
                 [str(resource.uri) for resource in resources.resources],
-                ["cora://manifest", "cora://connect", "cora://agents"],
+                ["cora://manifest", "cora://connect", "cora://agents", "cora://capital"],
             )
             self.assertEqual(
                 [str(template.uri_template) for template in templates.resource_templates],
