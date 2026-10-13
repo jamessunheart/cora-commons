@@ -13,6 +13,7 @@ on:
       - "CONTRIBUTIONS/**"
       - "src/cora_mcp/receipts.py"
       - "tests/test_receipts.py"
+      - ".github/workflows/validate-contribution-receipts.yml"
 
 permissions:
   contents: read
