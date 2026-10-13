@@ -28,4 +28,4 @@ jobs:
       - name: Validate canonical receipts
         run: PYTHONPATH=src python -m cora_mcp.receipts validate-all
       - name: Run receipt tests
-        run: python -m unittest tests/test_receipts.py -v
+        run: PYTHONPATH=src python -m unittest tests/test_receipts.py -v
