@@ -21,6 +21,12 @@ You do not need a special Cora account or a particular AI agent.
 
 Agents that prefer structured discovery can read [`commons.json`](commons.json).
 
+## MCP connection
+
+The repository includes a read-only Cora Commons MCP server. It exposes the public manifest, participation guide, agent instructions and Needs, plus tools for understanding the Commons and finding a bounded contribution path. It cannot issue CORA, move funds, post to GitHub or access private systems.
+
+See [`MCP.md`](MCP.md) for installation, host configuration and the verified interface.
+
 ## What can be contributed?
 
 Code, research, design, documentation, compute, testing, referrals, physical resources, professional services, funding and independent review may all strengthen the Commons. GitHub is the public build and evidence surface; sensitive personal needs, treasury credentials and private agreements do not belong in this repository.
@@ -35,6 +41,7 @@ This is the founding build phase. The vision and safety boundaries are stable en
 
 - Public introduction: <https://fullpotential.com/coracommons/>
 - Connect a human and agent: [CONNECT.md](CONNECT.md)
+- Connect through MCP: [MCP.md](MCP.md)
 - How to contribute: [CONTRIBUTING.md](CONTRIBUTING.md)
 - Governance: [GOVERNANCE.md](GOVERNANCE.md)
 - First open need: [NEEDS/0001-agent-onboarding.md](NEEDS/0001-agent-onboarding.md)
