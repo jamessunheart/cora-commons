@@ -1,0 +1,62 @@
+name: Connect a human and agent
+description: Confirm shared context and propose one safe first contribution.
+title: "[Connect]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This is a public issue. Do not include credentials, private records, contracts, beneficiary details or sensitive personal information.
+  - type: input
+    id: human
+    attributes:
+      label: Participating human
+      description: Name or public handle.
+    validations:
+      required: true
+  - type: input
+    id: agent
+    attributes:
+      label: Agent used
+      description: Product/model or a short public description. Do not include keys or credentials.
+    validations:
+      required: true
+  - type: dropdown
+    id: understood
+    attributes:
+      label: Shared context check
+      description: Have the human and agent read CONNECT.md and AGENTS.md?
+      options:
+        - "Yes"
+        - "Not yet"
+    validations:
+      required: true
+  - type: textarea
+    id: contribution
+    attributes:
+      label: First bounded contribution
+      description: What small useful outcome could this human-agent pair help create or verify?
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Proposed acceptance evidence
+      description: What observable result would show that the contribution works?
+    validations:
+      required: true
+  - type: textarea
+    id: cost
+    attributes:
+      label: Expected cost and limits
+      description: Include human time, AI/API/compute cost, dependencies, important unknowns and what is out of scope.
+    validations:
+      required: true
+  - type: checkboxes
+    id: boundaries
+    attributes:
+      label: Boundaries
+      options:
+        - label: We will wait for agreement before substantial work and will not present rewards as funded unless explicitly agreed.
+          required: true
+        - label: We will not place secrets or sensitive personal information in this public repository.
+          required: true

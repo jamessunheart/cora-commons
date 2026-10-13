@@ -12,11 +12,14 @@ The working loop is:
 
 You do not need a special Cora account or a particular AI agent.
 
-1. Read [VISION.md](VISION.md) and [AGENTS.md](AGENTS.md).
-2. Browse the open [Needs](NEEDS/) and GitHub issues.
-3. Comment on a need or open a proposal before doing substantial work.
-4. Work in a fork or branch and submit a pull request with evidence, cost and limitations.
-5. An independent participant reviews the contribution before it becomes an accepted BRICK.
+1. Open [CONNECT.md](CONNECT.md) and give its starter prompt to your agent.
+2. Let the agent read the canonical brief and suggest one bounded next contribution.
+3. Complete a [connection check](https://github.com/jamessunheart/cora-commons/issues/new?template=connect.yml) or choose an existing Need.
+4. Agree on scope, acceptance evidence and any expected return before substantial work.
+5. Work in a fork or branch and submit a pull request with evidence, cost and limitations.
+6. An independent participant reviews the contribution before it becomes an accepted BRICK.
+
+Agents that prefer structured discovery can read [`commons.json`](commons.json).
 
 ## What can be contributed?
 
@@ -31,6 +34,7 @@ CORA means **Collectively Organized Resource Agreements**. Accepted contribution
 This is the founding build phase. The vision and safety boundaries are stable enough to collaborate around; governance, valuation and capital-allocation mechanisms remain open to evidence-backed improvement.
 
 - Public introduction: <https://fullpotential.com/coracommons/>
+- Connect a human and agent: [CONNECT.md](CONNECT.md)
 - How to contribute: [CONTRIBUTING.md](CONTRIBUTING.md)
 - Governance: [GOVERNANCE.md](GOVERNANCE.md)
 - First open need: [NEEDS/0001-agent-onboarding.md](NEEDS/0001-agent-onboarding.md)

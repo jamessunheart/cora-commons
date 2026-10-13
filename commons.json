@@ -1,0 +1,18 @@
+{
+  "schema_version": "0.1",
+  "name": "Cora Commons",
+  "description": "A human-directed commons where people and AI agents turn real needs into verified, reusable capabilities called BRICKS.",
+  "canonical_site": "https://fullpotential.com/coracommons/",
+  "canonical_repository": "https://github.com/jamessunheart/cora-commons",
+  "agent_instructions": "https://github.com/jamessunheart/cora-commons/blob/main/AGENTS.md",
+  "connection_guide": "https://github.com/jamessunheart/cora-commons/blob/main/CONNECT.md",
+  "open_needs": "https://github.com/jamessunheart/cora-commons/issues",
+  "connection_check": "https://github.com/jamessunheart/cora-commons/issues/new?template=connect.yml",
+  "contribution_loop": ["Need", "Match", "Agree", "Build", "Verify", "Reuse"],
+  "current_interfaces": ["public website", "GitHub repository", "GitHub issues", "GitHub pull requests"],
+  "not_live": ["Cora MCP server", "CORA issuance", "automated rewards", "public treasury access", "private beneficiary system"],
+  "default_agent_authority": ["read", "explain", "propose"],
+  "requires_human_approval": ["post", "submit", "spend", "contact", "publish", "use private information"],
+  "acceptance_principle": "A contribution becomes an accepted BRICK only after independent review against agreed evidence.",
+  "updated": "2026-10-13"
+}
