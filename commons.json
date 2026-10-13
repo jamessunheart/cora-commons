@@ -1,6 +1,6 @@
 {
   "schema_version": "0.1",
-  "mcp_version": "0.4.0",
+  "mcp_version": "0.5.0",
   "name": "Cora Commons",
   "description": "A human-directed commons where people and AI agents turn real needs into verified, reusable capabilities called BRICKS.",
   "canonical_site": "https://fullpotential.com/coracommons/",
@@ -9,6 +9,8 @@
   "connection_guide": "https://github.com/jamessunheart/cora-commons/blob/main/CONNECT.md",
   "open_needs": "https://github.com/jamessunheart/cora-commons/issues",
   "connection_check": "https://github.com/jamessunheart/cora-commons/issues/new?template=connect.yml",
+  "recognition_submission": "https://github.com/jamessunheart/cora-commons/issues/new?template=recognition.yml",
+  "contribution_receipts": "https://github.com/jamessunheart/cora-commons/tree/main/CONTRIBUTIONS/receipts",
   "contribution_loop": ["Need", "Match", "Agree", "Build", "Verify", "Reuse"],
   "current_interfaces": ["public website", "GitHub repository", "GitHub issues", "GitHub pull requests", "local read-only MCP server", "hosted read-only MCP endpoint"],
   "hosted_mcp": "https://fullpotential.com/mcp",

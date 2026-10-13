@@ -6,6 +6,8 @@ import json
 import re
 from pathlib import Path
 
+from .receipts import RECEIPT_STATES, receipt_paths, validate_receipt
+
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 PUBLIC_DOCUMENTS = (
@@ -20,6 +22,7 @@ PUBLIC_DOCUMENTS = (
     "MCP.md",
 )
 RECORD_ID = re.compile(r"^[a-zA-Z0-9][a-zA-Z0-9._-]{0,79}$")
+RECEIPT_STATE_RANK = {state: index for index, state in enumerate(RECEIPT_STATES)}
 
 
 def read_text(relative_path: str) -> str:
@@ -115,6 +118,73 @@ def brick(brick_id: str) -> dict[str, str]:
     }
 
 
+def contribution_receipt(receipt_id: str) -> dict[str, object]:
+    if not RECORD_ID.fullmatch(receipt_id):
+        raise ValueError("Invalid Contribution Receipt id")
+    path = REPO_ROOT / "CONTRIBUTIONS" / "receipts" / f"{receipt_id}.json"
+    if not path.is_file():
+        raise ValueError(f"Unknown Contribution Receipt: {receipt_id}")
+    data = json.loads(path.read_text(encoding="utf-8"))
+    errors = validate_receipt(data, path.name)
+    if errors:
+        raise ValueError(f"Invalid canonical Contribution Receipt {receipt_id}: {'; '.join(errors)}")
+    return {
+        **data,
+        "repository_path": str(path.relative_to(REPO_ROOT)),
+        "url": f"https://github.com/jamessunheart/cora-commons/blob/main/{path.relative_to(REPO_ROOT)}",
+    }
+
+
+def contribution_receipts() -> list[dict[str, object]]:
+    records: list[dict[str, object]] = []
+    for path in receipt_paths(REPO_ROOT):
+        data = contribution_receipt(path.stem)
+        records.append(
+            {
+                "receipt_id": data["receipt_id"],
+                "status": data["status"],
+                "need_id": data["need_id"],
+                "contributors": data["contributors"],
+                "artifact": data["artifact"],
+                "review": data["review"],
+                "reward": data["reward"],
+                "url": data["url"],
+            }
+        )
+    return records
+
+
+def recognition_board() -> list[dict[str, object]]:
+    totals: dict[str, dict[str, object]] = {}
+    for receipt_record in contribution_receipts():
+        status = str(receipt_record["status"])
+        for contributor in receipt_record["contributors"]:
+            contributor_id = str(contributor["id"])
+            entry = totals.setdefault(
+                contributor_id,
+                {
+                    "contributor_id": contributor_id,
+                    "name": contributor["name"],
+                    "kind": contributor["kind"],
+                    "accepted_receipts": 0,
+                    "reused_receipts": 0,
+                    "impact_verified_receipts": 0,
+                    "reward_allocated_receipts": 0,
+                },
+            )
+            entry["accepted_receipts"] = int(entry["accepted_receipts"]) + 1
+            if RECEIPT_STATE_RANK[status] >= RECEIPT_STATE_RANK["REUSED"]:
+                entry["reused_receipts"] = int(entry["reused_receipts"]) + 1
+            if RECEIPT_STATE_RANK[status] >= RECEIPT_STATE_RANK["IMPACT_VERIFIED"]:
+                entry["impact_verified_receipts"] = int(entry["impact_verified_receipts"]) + 1
+            if RECEIPT_STATE_RANK[status] >= RECEIPT_STATE_RANK["REWARD_ALLOCATED"]:
+                entry["reward_allocated_receipts"] = int(entry["reward_allocated_receipts"]) + 1
+    return sorted(
+        totals.values(),
+        key=lambda item: (-int(item["impact_verified_receipts"]), -int(item["reused_receipts"]), -int(item["accepted_receipts"]), str(item["contributor_id"])),
+    )
+
+
 def search(query: str, limit: int = 5) -> list[dict[str, object]]:
     tokens = {token.lower() for token in re.findall(r"[a-zA-Z0-9]+", query) if len(token) > 1}
     if not tokens:
@@ -170,19 +240,19 @@ def match_needs(capabilities: str, interests: str = "", limit: int = 3) -> list[
 
 
 def pulse() -> dict[str, object]:
-    contribution_files = [
-        path for path in (REPO_ROOT / "CONTRIBUTIONS").glob("*.md") if path.name != "README.md"
-    ]
+    receipt_records = contribution_receipts()
     accepted_bricks = bricks()
     return {
         "scope": "repository records available to this MCP server",
         "open_needs": len(needs()),
         "accepted_bricks": len(accepted_bricks),
-        "contribution_receipts": len(contribution_files),
+        "contribution_receipts": len(receipt_records),
         "cora_calculated": None,
         "cora_available": None,
+        "recognition_board": recognition_board(),
         "leaderboard": [],
-        "evidence_note": "No CORA or ranking is inferred from commits, files or activity. Values appear only from explicit contribution receipts and agreements.",
+        "cora_leaderboard": [],
+        "evidence_note": "Recognition is derived only from validated, independently accepted Contribution Receipts. No CORA is inferred from commits, files or activity.",
     }
 
 

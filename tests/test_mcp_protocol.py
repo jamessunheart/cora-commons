@@ -25,6 +25,10 @@ class MCPProtocolTests(unittest.IsolatedAsyncioTestCase):
                     "commons_pulse",
                     "contribution_path",
                     "capital_commons_build_path",
+                    "list_contribution_receipts",
+                    "get_contribution_receipt",
+                    "commons_recognition",
+                    "recognition_path",
                 ],
             )
             for tool in result.tools:
@@ -42,7 +46,7 @@ class MCPProtocolTests(unittest.IsolatedAsyncioTestCase):
             )
             self.assertEqual(
                 [str(template.uri_template) for template in templates.resource_templates],
-                ["cora://needs/{need_id}", "cora://bricks/{brick_id}"],
+                ["cora://needs/{need_id}", "cora://bricks/{brick_id}", "cora://receipts/{receipt_id}"],
             )
             self.assertEqual([prompt.name for prompt in prompts.prompts], ["join_cora_commons"])
 
@@ -94,6 +98,14 @@ class MCPProtocolTests(unittest.IsolatedAsyncioTestCase):
             current = await client.call_tool("commons_pulse", {})
             self.assertIsNone(current.structured_content["cora_calculated"])
             self.assertEqual(current.structured_content["leaderboard"], [])
+
+            recognition = await client.call_tool("commons_recognition", {})
+            self.assertEqual(recognition.structured_content["contributors"], [])
+            self.assertIn("not CORA issuance", recognition.structured_content["boundary"])
+
+            path = await client.call_tool("recognition_path", {})
+            self.assertIn("recognition.yml", path.structured_content["submit"])
+            self.assertIn("commits", path.structured_content["boundary"])
 
 
 if __name__ == "__main__":

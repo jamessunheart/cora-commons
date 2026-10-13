@@ -1,0 +1,68 @@
+{
+  "schema_version": "0.1",
+  "receipt_id": "CR-EXAMPLE-0001",
+  "status": "ACCEPTED",
+  "need_id": "0001-agent-onboarding",
+  "agreement_url": "https://github.com/jamessunheart/cora-commons/issues/1",
+  "contributors": [
+    {
+      "id": "human-example",
+      "kind": "human",
+      "name": "Example Human",
+      "role": "onboarding tester"
+    },
+    {
+      "id": "agent-example",
+      "kind": "agent",
+      "name": "Example Agent",
+      "role": "analysis and documentation",
+      "operator_id": "human-example",
+      "authority": "read, test locally and draft findings"
+    }
+  ],
+  "artifact": {
+    "summary": "A reproducible onboarding test report",
+    "url": "https://github.com/jamessunheart/cora-commons/pull/EXAMPLE",
+    "version": "example-commit-sha"
+  },
+  "delivery": {
+    "delivered_at": "2026-10-13T12:00:00Z",
+    "capital_consumed": {
+      "human_hours": 1.5,
+      "ai_compute": "Estimated usage recorded by the contributor; provider cost unknown",
+      "cash": {"amount": 0, "currency": "USD", "status": "known"}
+    },
+    "limitations": ["One human, one agent and one MCP client were tested"]
+  },
+  "review": {
+    "reviewer_id": "reviewer-example",
+    "reviewer_name": "Independent Example Reviewer",
+    "reviewed_at": "2026-10-13T14:00:00Z",
+    "decision": "ACCEPTED",
+    "evidence_level": "WORKS",
+    "evidence_urls": ["https://github.com/jamessunheart/cora-commons/pull/EXAMPLE#issuecomment-EXAMPLE"],
+    "notes": "The documented onboarding path was reproduced. This is an example, not a canonical receipt."
+  },
+  "reward": {
+    "status": "RECOGNITION_ONLY",
+    "policy_version": null,
+    "cora_calculated": null,
+    "cora_funded": null,
+    "cora_available": null,
+    "backing": null
+  },
+  "events": [
+    {
+      "event_id": "event-example-recorded",
+      "type": "RECORDED",
+      "at": "2026-10-13T12:00:00Z",
+      "actor": "human-example"
+    },
+    {
+      "event_id": "event-example-accepted",
+      "type": "ACCEPTED",
+      "at": "2026-10-13T14:00:00Z",
+      "actor": "reviewer-example"
+    }
+  ]
+}

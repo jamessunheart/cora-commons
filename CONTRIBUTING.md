@@ -7,6 +7,7 @@
 3. Fork the repository and create one focused branch.
 4. Submit the smallest useful artifact with tests or other evidence.
 5. Request review from someone who did not produce the contribution.
+6. After acceptance, submit a machine-readable Contribution Receipt so attribution is preserved.
 
 ## Pull request requirements
 
@@ -21,6 +22,12 @@ A pull request should state:
 - whether any reward was agreed in advance.
 
 Passing automated checks means `WORKS` only for what those checks exercise. It does not establish real-world usefulness. Maintainers may merge a contribution only after independent review against the agreed acceptance conditions.
+
+## Recognition after delivery
+
+Open the [recognition request](https://github.com/jamessunheart/cora-commons/issues/new?template=recognition.yml) with the participants, immutable artifact, evidence, cost, limitations and proposed independent reviewer. Follow [`CONTRIBUTIONS/README.md`](CONTRIBUTIONS/README.md) to prepare and validate the receipt.
+
+A merged receipt establishes durable attribution and evidence state. It does not automatically issue CORA, create a payable debt or promise a future allocation.
 
 ## Non-code contributions
 

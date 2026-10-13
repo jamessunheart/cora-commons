@@ -8,12 +8,27 @@ from mcp.server import MCPServer
 from mcp.server.transport_security import TransportSecuritySettings
 from mcp.types import ToolAnnotations
 
-from .catalog import brick, bricks, capital_build_path, manifest, match_needs, need, needs, overview, pulse, read_text, search
+from .catalog import (
+    brick,
+    bricks,
+    capital_build_path,
+    contribution_receipt,
+    contribution_receipts,
+    manifest,
+    match_needs,
+    need,
+    needs,
+    overview,
+    pulse,
+    read_text,
+    recognition_board,
+    search,
+)
 
 
 mcp = MCPServer(
     "Cora Commons",
-    version="0.4.0",
+    version="0.5.0",
     website_url="https://fullpotential.com/coracommons/",
 )
 
@@ -54,6 +69,14 @@ def need_resource(need_id: str) -> str:
 def brick_resource(brick_id: str) -> str:
     """Read one independently accepted BRICK by its repository id."""
     return brick(brick_id)["body"]
+
+
+@mcp.resource("cora://receipts/{receipt_id}")
+def receipt_resource(receipt_id: str) -> str:
+    """Read one validated, independently accepted Contribution Receipt."""
+    import json
+
+    return json.dumps(contribution_receipt(receipt_id), indent=2, sort_keys=True)
 
 
 @mcp.tool(annotations=READ_ONLY)
@@ -218,6 +241,48 @@ def capital_commons_build_path() -> dict[str, object]:
     return capital_build_path()
 
 
+@mcp.tool(annotations=READ_ONLY)
+def list_contribution_receipts() -> list[dict[str, object]]:
+    """List validated, independently accepted Contribution Receipts."""
+    return contribution_receipts()
+
+
+@mcp.tool(annotations=READ_ONLY)
+def get_contribution_receipt(receipt_id: str) -> dict[str, object]:
+    """Read one canonical Contribution Receipt and its evidence/reward boundary."""
+    return contribution_receipt(receipt_id)
+
+
+@mcp.tool(annotations=READ_ONLY)
+def commons_recognition() -> dict[str, object]:
+    """Show evidence-based recognition without inventing CORA value."""
+    return {
+        "contributors": recognition_board(),
+        "source": "validated canonical Contribution Receipts only",
+        "excluded": ["connection activity", "commits without an accepted receipt", "self-claims", "unverified work"],
+        "boundary": "Recognition is not CORA issuance, funding, ownership or a promise of payment.",
+    }
+
+
+@mcp.tool(annotations=READ_ONLY)
+def recognition_path() -> dict[str, object]:
+    """Explain how delivered work becomes durable public recognition."""
+    data = manifest()
+    return {
+        "steps": [
+            "agree scope and evidence before substantial work",
+            "deliver an immutable artifact with cost and limitations",
+            "submit a public recognition request",
+            "receive independent review",
+            "merge a validator-approved Contribution Receipt",
+            "append later reuse, impact or reward evidence without rewriting history",
+        ],
+        "submit": data["recognition_submission"],
+        "ledger": data["contribution_receipts"],
+        "boundary": "Connection, conversation, commits and self-claims alone do not create recognized contribution credit.",
+    }
+
+
 @mcp.prompt()
 def join_cora_commons(human_name: str, contribution: str = "not yet known") -> str:
     """Prepare a safe first Cora Commons exploration for a human-agent pair."""
@@ -225,7 +290,8 @@ def join_cora_commons(human_name: str, contribution: str = "not yet known") -> s
 Their possible contribution is: {contribution}.
 
 Read cora://manifest, cora://connect, cora://agents and cora://capital. Then call
-understand_commons, list_open_needs, contribution_path and capital_commons_build_path.
+understand_commons, list_open_needs, contribution_path, recognition_path and
+capital_commons_build_path.
 Explain the Commons in five plain-language
 sentences and recommend one small contribution with a deliverable, acceptance evidence,
 estimated human/AI/compute cost, limitations and likely reuse. Wait for explicit human

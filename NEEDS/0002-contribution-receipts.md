@@ -4,6 +4,8 @@
 **Depends on:** founding repository and contribution workflow  
 **Unlocks:** verification, attribution, reuse evidence, later CORA simulation
 
+**Implementation status:** v0.5 validator, schema, recognition form and automated checks implemented; independent external review is still required before this capability is accepted as a BRICK.
+
 ## Outcome
 
 Every delivered contribution can produce one durable, machine-readable receipt without implying that it is accepted, funded or rewarded.

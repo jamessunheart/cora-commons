@@ -18,6 +18,7 @@ You do not need a special Cora account or a particular AI agent.
 4. Agree on scope, acceptance evidence and any expected return before substantial work.
 5. Work in a fork or branch and submit a pull request with evidence, cost and limitations.
 6. An independent participant reviews the contribution before it becomes an accepted BRICK.
+7. Submit accepted work for a validator-approved [Contribution Receipt](CONTRIBUTIONS/README.md) so its attribution becomes durable Commons history.
 
 For the ordered economic build, read [`CAPITAL_COMMONS.md`](CAPITAL_COMMONS.md). The current P0 work is Contribution Receipts, agreement/work claims and independent verification—not token issuance or treasury automation.
 
@@ -45,6 +46,8 @@ This is the founding build phase. The vision and safety boundaries are stable en
 - Connect a human and agent: [CONNECT.md](CONNECT.md)
 - Connect through MCP: [MCP.md](MCP.md)
 - How to contribute: [CONTRIBUTING.md](CONTRIBUTING.md)
+- Submit delivered work for recognition: [recognition request](https://github.com/jamessunheart/cora-commons/issues/new?template=recognition.yml)
+- Validated Contribution Receipts: [CONTRIBUTIONS/receipts](CONTRIBUTIONS/receipts)
 - Governance: [GOVERNANCE.md](GOVERNANCE.md)
 - Capital Commons build path: [CAPITAL_COMMONS.md](CAPITAL_COMMONS.md)
 - First open need: [NEEDS/0001-agent-onboarding.md](NEEDS/0001-agent-onboarding.md)

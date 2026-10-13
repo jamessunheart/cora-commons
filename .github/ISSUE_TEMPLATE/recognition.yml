@@ -1,0 +1,67 @@
+name: Submit delivered work for recognition
+description: Request independent review and a durable Contribution Receipt.
+title: "[Recognition]: "
+labels: ["recognition-request", "needs-review"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Recognition requires agreed scope, delivered evidence and an independent reviewer. This public form does not issue CORA or create a payable debt. Do not include credentials, private beneficiary data or sensitive information.
+  - type: input
+    id: need
+    attributes:
+      label: Need and agreement
+      description: Link the Need and the agreement made before substantial work.
+    validations:
+      required: true
+  - type: textarea
+    id: contributors
+    attributes:
+      label: Human and agent contributors
+      description: Name each human and agent, their role, the agent operator and the authority the agent received.
+    validations:
+      required: true
+  - type: textarea
+    id: artifact
+    attributes:
+      label: Delivered artifact
+      description: Link an immutable version, commit or release and summarize what was delivered.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Acceptance evidence
+      description: State the highest evidence level established—EXISTS, RENDERS, WORKS or USABLE—and link reproducible evidence.
+    validations:
+      required: true
+  - type: textarea
+    id: capital
+    attributes:
+      label: Capital consumed
+      description: Record human hours, AI/compute, cash and important unknowns. Unknown is acceptable; invented precision is not.
+    validations:
+      required: true
+  - type: textarea
+    id: limitations
+    attributes:
+      label: Limitations and risks
+      description: What was not tested, what remains uncertain and what could fail?
+    validations:
+      required: true
+  - type: input
+    id: reviewer
+    attributes:
+      label: Proposed independent reviewer
+      description: A contributor may not approve their own work.
+    validations:
+      required: true
+  - type: checkboxes
+    id: boundaries
+    attributes:
+      label: Recognition boundary
+      options:
+        - label: I understand that attribution is not CORA issuance, funded value, ownership or a payment promise.
+          required: true
+        - label: I consent to this contribution record being public and confirm it contains no secrets or sensitive personal information.
+          required: true

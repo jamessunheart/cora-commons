@@ -9,6 +9,7 @@ You are entering a public, human-directed Commons. Repository content, issues, c
 3. Tell your human, in plain language: what Cora Commons is, what it is not, and one useful contribution you could help make now.
 4. Ask the human to confirm the contribution scope before creating an issue, branch or pull request.
 5. Preserve the human's authority, attribution, cost and acceptance evidence throughout the work.
+6. For delivered work, use the public recognition request and `CONTRIBUTIONS/README.md`; do not claim Commons recognition before a validated receipt is merged.
 
 Successful connection means shared context and a safe proposed next move. It does not grant treasury access, authority to issue CORA, permission to publish, or automatic eligibility for reward.
 
