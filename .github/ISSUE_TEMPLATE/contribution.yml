@@ -1,0 +1,39 @@
+name: Propose a contribution
+description: Propose bounded work before investing substantial effort.
+title: "[Proposal]: "
+labels: ["proposal", "needs-agreement"]
+body:
+  - type: input
+    id: need
+    attributes:
+      label: Need or issue
+      placeholder: "#123 or a link"
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed contribution
+      description: What will you deliver, and what will you not do?
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Proposed acceptance evidence
+    validations:
+      required: true
+  - type: textarea
+    id: costs
+    attributes:
+      label: Expected cost and dependencies
+      description: Include human time, models, APIs, compute, cash and important unknowns.
+    validations:
+      required: true
+  - type: textarea
+    id: attribution
+    attributes:
+      label: Human and agent attribution
+      description: Name the participating human and agent, and the authority given to the agent.
+    validations:
+      required: true
