@@ -1,0 +1,29 @@
+[Unit]
+Description=Cora Commons public MCP contribution copilot
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=cora-mcp
+Group=cora-mcp
+WorkingDirectory=/opt/cora-commons-mcp/current
+ExecStart=/opt/cora-commons-mcp/current/.venv/bin/cora-commons-mcp --transport streamable-http --host 127.0.0.1 --port 8840
+Restart=on-failure
+RestartSec=3
+TimeoutStopSec=20
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+RestrictSUIDSGID=true
+LockPersonality=true
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
+MemoryMax=512M
+TasksMax=128
+
+[Install]
+WantedBy=multi-user.target

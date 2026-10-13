@@ -2,7 +2,10 @@
 
 from __future__ import annotations
 
+import argparse
+
 from mcp.server import MCPServer
+from mcp.server.transport_security import TransportSecuritySettings
 from mcp.types import ToolAnnotations
 
 from .catalog import brick, bricks, manifest, match_needs, need, needs, overview, pulse, read_text, search
@@ -10,7 +13,7 @@ from .catalog import brick, bricks, manifest, match_needs, need, needs, overview
 
 mcp = MCPServer(
     "Cora Commons",
-    version="0.2.0",
+    version="0.3.0",
     website_url="https://fullpotential.com/coracommons/",
 )
 
@@ -216,9 +219,49 @@ estimated human/AI/compute cost, limitations and likely reuse. Wait for explicit
 approval before posting, submitting, spending, contacting anyone or using private data."""
 
 
+def parse_args() -> argparse.Namespace:
+    """Parse the small, explicit transport surface used locally and in production."""
+    parser = argparse.ArgumentParser(description="Cora Commons MCP contribution copilot")
+    parser.add_argument(
+        "--transport",
+        choices=("stdio", "streamable-http"),
+        default="stdio",
+        help="stdio for a local host; streamable-http for the hosted endpoint",
+    )
+    parser.add_argument("--host", default="127.0.0.1")
+    parser.add_argument("--port", type=int, default=8840)
+    return parser.parse_args()
+
+
 def main() -> None:
-    """Run the local stdio transport used by MCP-capable agent hosts."""
-    mcp.run()
+    """Run the local stdio server or the hardened, stateless HTTP service."""
+    args = parse_args()
+    if args.transport == "stdio":
+        mcp.run()
+        return
+
+    mcp.run(
+        transport="streamable-http",
+        host=args.host,
+        port=args.port,
+        streamable_http_path="/mcp",
+        stateless_http=True,
+        json_response=True,
+        max_request_body_size=256 * 1024,
+        transport_security=TransportSecuritySettings(
+            enable_dns_rebinding_protection=True,
+            allowed_hosts=[
+                "fullpotential.com",
+                "www.fullpotential.com",
+                "127.0.0.1:*",
+                "localhost:*",
+            ],
+            allowed_origins=[
+                "https://fullpotential.com",
+                "https://www.fullpotential.com",
+            ],
+        ),
+    )
 
 
 if __name__ == "__main__":

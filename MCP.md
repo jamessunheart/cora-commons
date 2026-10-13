@@ -1,6 +1,16 @@
 # Connect through MCP
 
-The Cora Commons MCP server gives compatible AI hosts a structured, read-only connection to the public Commons. Version 0.2 acts as a contribution copilot: it can understand, search, match, draft and validate without posting or exercising authority.
+The Cora Commons MCP server gives compatible AI hosts a structured, read-only connection to the public Commons. Version 0.3 acts as a contribution copilot: it can understand, search, match, draft and validate without posting or exercising authority.
+
+## Fastest connection
+
+Use the hosted Streamable HTTP endpoint in any compatible agent host:
+
+```text
+https://fullpotential.com/mcp
+```
+
+No Cora account or API key is required for the public read-only interface. The human still approves any post, pull request, spend, outreach or use of private information.
 
 ## What it exposes
 
@@ -75,6 +85,8 @@ uv run mcp dev src/cora_mcp/server.py
 
 The Inspector command uses `npx` and opens a local development UI. The deterministic catalog tests do not access private systems or external accounts.
 
-## Hosted connection
+## Hosted connection boundary
 
-The next layer is a public Streamable HTTP endpoint such as `https://fullpotential.com/mcp`. It should first expose exactly this read-only interface. Write operations require a separate authenticated service, explicit human approval, rate limits, audit records and narrower authorization. The hosted endpoint is not deployed yet.
+`https://fullpotential.com/mcp` exposes exactly this public read-only interface over Streamable HTTP. It is stateless, request-size limited, rate limited at the public proxy, and DNS-rebinding protected. GitHub remains the auditable collaboration surface for connection checks, issues, forks and pull requests.
+
+Write operations are intentionally excluded. A future authenticated write service would require explicit human approval, scoped identities, rate limits, audit records, anti-spam controls and narrower authorization before deployment.

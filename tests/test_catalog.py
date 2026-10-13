@@ -9,7 +9,9 @@ class CatalogTests(unittest.TestCase):
     def test_manifest_names_current_boundary(self) -> None:
         data = manifest()
         self.assertEqual(data["name"], "Cora Commons")
-        self.assertIn("hosted public MCP endpoint", data["not_live"])
+        self.assertEqual(data["hosted_mcp"], "https://fullpotential.com/mcp")
+        self.assertIn("hosted read-only MCP endpoint", data["current_interfaces"])
+        self.assertNotIn("hosted public MCP endpoint", data["not_live"])
         self.assertIn("read", data["default_agent_authority"])
 
     def test_open_needs_are_structured(self) -> None:
