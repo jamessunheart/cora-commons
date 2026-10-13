@@ -1,6 +1,6 @@
 # Connect through MCP
 
-The Cora Commons MCP server gives compatible AI hosts a structured, read-only connection to the public Commons.
+The Cora Commons MCP server gives compatible AI hosts a structured, read-only connection to the public Commons. Version 0.2 acts as a contribution copilot: it can understand, search, match, draft and validate without posting or exercising authority.
 
 ## What it exposes
 
@@ -9,18 +9,27 @@ Resources:
 - `cora://manifest` — identity, interfaces and authority boundaries;
 - `cora://connect` — the universal connection guide;
 - `cora://agents` — participation and safety instructions.
+- `cora://needs/{need_id}` — one canonical Need;
+- `cora://bricks/{brick_id}` — one independently accepted BRICK.
 
 Tools:
 
 - `understand_commons` — current purpose, boundaries and next safe step;
 - `list_open_needs` — structured public Needs from the repository;
-- `contribution_path` — the evidence, cost and attribution required for a proposal.
+- `get_need` — outcome and acceptance evidence for one Need;
+- `list_accepted_bricks` — only independently accepted BRICKS;
+- `search_commons` — canonical-document search with transparent matches;
+- `match_contribution` — capability-to-Need matching with visible method;
+- `contribution_path` — the evidence, cost and attribution required for a proposal;
+- `draft_contribution_proposal` — produces an unposted agreement draft;
+- `validate_contribution_proposal` — checks completeness without claiming acceptance;
+- `commons_pulse` — factual counts without inventing CORA or rankings.
 
 Prompt:
 
 - `join_cora_commons` — guides a named human-agent pair toward one bounded proposed contribution.
 
-Every tool is read-only. There are no tools for posting, issuing CORA, promising rewards, moving money, accessing private information or merging work.
+Every tool is read-only. There are no tools for posting, issuing CORA, promising rewards, moving money, accessing private information or merging work. Drafting is not submission; validation is not acceptance.
 
 ## Run locally
 

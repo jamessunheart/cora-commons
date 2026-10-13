@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "cora-commons-mcp"
-version = "0.1.0"
+version = "0.2.0"
 description = "Read-only MCP connection to the public Cora Commons"
 readme = "MCP.md"
 requires-python = ">=3.11"

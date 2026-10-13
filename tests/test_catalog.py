@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import unittest
 
-from cora_mcp.catalog import manifest, needs, overview, read_text
+from cora_mcp.catalog import manifest, match_needs, needs, overview, pulse, read_text, search
 
 
 class CatalogTests(unittest.TestCase):
@@ -26,6 +26,24 @@ class CatalogTests(unittest.TestCase):
     def test_reader_rejects_path_escape(self) -> None:
         with self.assertRaises(ValueError):
             read_text("../private.txt")
+
+    def test_search_is_bounded_to_public_records(self) -> None:
+        results = search("verification reward", limit=3)
+        self.assertTrue(results)
+        self.assertLessEqual(len(results), 3)
+        self.assertTrue(all(".." not in result["path"] for result in results))
+
+    def test_match_explains_its_basis(self) -> None:
+        matches = match_needs("agent onboarding testing")
+        self.assertEqual(matches[0]["id"], "0001-agent-onboarding")
+        self.assertGreater(matches[0]["match_score"], 0)
+        self.assertIn("Matched on", matches[0]["reason"])
+
+    def test_pulse_does_not_invent_cora(self) -> None:
+        data = pulse()
+        self.assertIsNone(data["cora_calculated"])
+        self.assertIsNone(data["cora_available"])
+        self.assertEqual(data["leaderboard"], [])
 
 
 if __name__ == "__main__":

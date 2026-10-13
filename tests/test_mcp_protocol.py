@@ -13,7 +13,18 @@ class MCPProtocolTests(unittest.IsolatedAsyncioTestCase):
             result = await client.list_tools()
             self.assertEqual(
                 [tool.name for tool in result.tools],
-                ["understand_commons", "list_open_needs", "contribution_path"],
+                [
+                    "understand_commons",
+                    "list_open_needs",
+                    "get_need",
+                    "list_accepted_bricks",
+                    "search_commons",
+                    "match_contribution",
+                    "draft_contribution_proposal",
+                    "validate_contribution_proposal",
+                    "commons_pulse",
+                    "contribution_path",
+                ],
             )
             for tool in result.tools:
                 self.assertTrue(tool.annotations.read_only_hint)
@@ -22,10 +33,15 @@ class MCPProtocolTests(unittest.IsolatedAsyncioTestCase):
     async def test_server_exposes_canonical_resources_and_prompt(self) -> None:
         async with Client(mcp) as client:
             resources = await client.list_resources()
+            templates = await client.list_resource_templates()
             prompts = await client.list_prompts()
             self.assertEqual(
                 [str(resource.uri) for resource in resources.resources],
                 ["cora://manifest", "cora://connect", "cora://agents"],
+            )
+            self.assertEqual(
+                [str(template.uri_template) for template in templates.resource_templates],
+                ["cora://needs/{need_id}", "cora://bricks/{brick_id}"],
             )
             self.assertEqual([prompt.name for prompt in prompts.prompts], ["join_cora_commons"])
 
@@ -36,6 +52,47 @@ class MCPProtocolTests(unittest.IsolatedAsyncioTestCase):
             self.assertEqual(result.structured_content["name"], "Cora Commons")
             self.assertIn("post", result.structured_content["requires_human_approval"])
             self.assertIn("CORA issuance", result.structured_content["not_live"])
+
+    async def test_matching_drafting_validation_and_pulse(self) -> None:
+        async with Client(mcp) as client:
+            matched = await client.call_tool(
+                "match_contribution",
+                {"capabilities": "agent onboarding testing", "time_budget_hours": 2},
+            )
+            self.assertEqual(matched.structured_content["matches"][0]["id"], "0001-agent-onboarding")
+
+            draft = await client.call_tool(
+                "draft_contribution_proposal",
+                {
+                    "need_id": "0001-agent-onboarding",
+                    "human": "Example Human",
+                    "agent": "Example Agent",
+                    "deliverable": "Test the connection guide",
+                    "acceptance_evidence": "A newcomer completes it without coaching",
+                    "expected_cost": "Two human hours; AI cost unknown",
+                    "limitations": "One client and one participant",
+                },
+            )
+            self.assertEqual(draft.structured_content["status"], "draft_only")
+            self.assertTrue(draft.structured_content["requires_human_approval_before_posting"])
+
+            validation = await client.call_tool(
+                "validate_contribution_proposal",
+                {
+                    "need_id": "0001-agent-onboarding",
+                    "human": "Example Human",
+                    "agent": "Example Agent",
+                    "deliverable": "Test the connection guide",
+                    "acceptance_evidence": "A newcomer completes it without coaching",
+                    "expected_cost": "Two human hours; AI cost unknown",
+                    "limitations": "One client and one participant",
+                },
+            )
+            self.assertTrue(validation.structured_content["complete"])
+
+            current = await client.call_tool("commons_pulse", {})
+            self.assertIsNone(current.structured_content["cora_calculated"])
+            self.assertEqual(current.structured_content["leaderboard"], [])
 
 
 if __name__ == "__main__":

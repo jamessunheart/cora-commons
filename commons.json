@@ -1,5 +1,6 @@
 {
   "schema_version": "0.1",
+  "mcp_version": "0.2.0",
   "name": "Cora Commons",
   "description": "A human-directed commons where people and AI agents turn real needs into verified, reusable capabilities called BRICKS.",
   "canonical_site": "https://fullpotential.com/coracommons/",

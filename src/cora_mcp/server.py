@@ -5,12 +5,12 @@ from __future__ import annotations
 from mcp.server import MCPServer
 from mcp.types import ToolAnnotations
 
-from .catalog import manifest, needs, overview, read_text
+from .catalog import brick, bricks, manifest, match_needs, need, needs, overview, pulse, read_text, search
 
 
 mcp = MCPServer(
     "Cora Commons",
-    version="0.1.0",
+    version="0.2.0",
     website_url="https://fullpotential.com/coracommons/",
 )
 
@@ -35,6 +35,18 @@ def agent_instructions() -> str:
     return read_text("AGENTS.md")
 
 
+@mcp.resource("cora://needs/{need_id}")
+def need_resource(need_id: str) -> str:
+    """Read one public Need by its repository id."""
+    return need(need_id)["body"]
+
+
+@mcp.resource("cora://bricks/{brick_id}")
+def brick_resource(brick_id: str) -> str:
+    """Read one independently accepted BRICK by its repository id."""
+    return brick(brick_id)["body"]
+
+
 @mcp.tool(annotations=READ_ONLY)
 def understand_commons() -> dict[str, object]:
     """Explain the current public Commons, authority boundaries and next safe step."""
@@ -45,6 +57,126 @@ def understand_commons() -> dict[str, object]:
 def list_open_needs() -> list[dict[str, str]]:
     """List repository Needs available for public exploration."""
     return needs()
+
+
+@mcp.tool(annotations=READ_ONLY)
+def get_need(need_id: str) -> dict[str, str]:
+    """Read one public Need, including its outcome and acceptance evidence."""
+    return need(need_id)
+
+
+@mcp.tool(annotations=READ_ONLY)
+def list_accepted_bricks() -> list[dict[str, str]]:
+    """List independently accepted BRICKS; returns an empty list when none exist."""
+    return bricks()
+
+
+@mcp.tool(annotations=READ_ONLY)
+def search_commons(query: str, limit: int = 5) -> list[dict[str, object]]:
+    """Search canonical public Commons documents, Needs and accepted BRICKS."""
+    return search(query, limit)
+
+
+@mcp.tool(annotations=READ_ONLY)
+def match_contribution(
+    capabilities: str,
+    interests: str = "",
+    time_budget_hours: float | None = None,
+    limit: int = 3,
+) -> dict[str, object]:
+    """Match stated capabilities to open Needs without claiming acceptance or reward."""
+    return {
+        "matches": match_needs(capabilities, interests, limit),
+        "time_budget_hours": time_budget_hours,
+        "method": "transparent keyword overlap over canonical open Need records",
+        "next_step": "Choose one candidate, define a deliverable and acceptance evidence, then obtain human agreement before substantial work.",
+    }
+
+
+@mcp.tool(annotations=READ_ONLY)
+def draft_contribution_proposal(
+    need_id: str,
+    human: str,
+    agent: str,
+    deliverable: str,
+    acceptance_evidence: str,
+    expected_cost: str,
+    limitations: str,
+    expected_return: str = "Recognition only unless separately agreed and funded",
+) -> dict[str, object]:
+    """Draft—but never post—a bounded contribution agreement for human approval."""
+    selected = need(need_id)
+    markdown = f"""# Contribution proposal — {selected['title']}
+
+## Participants
+- Human: {human}
+- Agent: {agent}
+
+## Deliverable
+{deliverable}
+
+## Acceptance evidence
+{acceptance_evidence}
+
+## Expected cost
+{expected_cost}
+
+## Limitations and out of scope
+{limitations}
+
+## Expected return
+{expected_return}
+
+## Authority boundary
+This is a draft for human and reviewer agreement. It has not been posted, accepted, funded or rewarded.
+"""
+    return {
+        "need": {"id": selected["id"], "title": selected["title"], "url": selected["url"]},
+        "draft_markdown": markdown,
+        "status": "draft_only",
+        "requires_human_approval_before_posting": True,
+    }
+
+
+@mcp.tool(annotations=READ_ONLY)
+def validate_contribution_proposal(
+    need_id: str,
+    human: str,
+    agent: str,
+    deliverable: str,
+    acceptance_evidence: str,
+    expected_cost: str,
+    limitations: str,
+) -> dict[str, object]:
+    """Check whether a proposal has the minimum fields needed for agreement."""
+    errors: list[str] = []
+    try:
+        need(need_id)
+    except ValueError as exc:
+        errors.append(str(exc))
+    fields = {
+        "human": human,
+        "agent": agent,
+        "deliverable": deliverable,
+        "acceptance_evidence": acceptance_evidence,
+        "expected_cost": expected_cost,
+        "limitations": limitations,
+    }
+    for field, value in fields.items():
+        if not value.strip():
+            errors.append(f"Missing {field.replace('_', ' ')}")
+    return {
+        "complete": not errors,
+        "errors": errors,
+        "status": "ready_for_human_agreement" if not errors else "needs_revision",
+        "boundary": "Completeness is not acceptance, verification, funding or authorization to post.",
+    }
+
+
+@mcp.tool(annotations=READ_ONLY)
+def commons_pulse() -> dict[str, object]:
+    """Return factual repository counts without inventing CORA or leaderboard value."""
+    return pulse()
 
 
 @mcp.tool(annotations=READ_ONLY)
