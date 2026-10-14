@@ -52,8 +52,8 @@ body:
   - type: input
     id: reviewer
     attributes:
-      label: Proposed independent reviewer
-      description: A contributor may not approve their own work.
+      label: Proposed independent reviewer and conflict disclosure
+      description: Name the reviewer and disclose financial, employment, family, reciprocal-review or reward relationships. A contributor may not approve their own work. See TRUST.md.
     validations:
       required: true
   - type: checkboxes

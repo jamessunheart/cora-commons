@@ -14,7 +14,7 @@ Every accepted contribution should preserve attribution. Attribution does not by
 
 ## Retroactive recognition
 
-The historical contribution record remains immutable. A versioned reward policy may add recognition or later allocations as evidence of reuse and impact appears. Legitimately settled rewards are not repriced or clawed back merely because a later valuation policy changes. Fraud, duplicate claims and overturned acceptance follow a separate dispute process.
+The historical contribution record remains immutable. A versioned reward policy may add recognition or later allocations as evidence of reuse and impact appears. Legitimately settled rewards are not repriced or clawed back merely because a later valuation policy changes. Fraud, duplicate claims and overturned acceptance follow the founding process in [`TRUST.md`](TRUST.md) until a dedicated dispute service is accepted.
 
 ## What is not rewarded automatically
 

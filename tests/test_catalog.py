@@ -24,6 +24,8 @@ class CatalogTests(unittest.TestCase):
         self.assertIn("hosted read-only MCP endpoint", data["current_interfaces"])
         self.assertNotIn("hosted public MCP endpoint", data["not_live"])
         self.assertIn("read", data["default_agent_authority"])
+        self.assertEqual(data["mcp_version"], "0.6.0")
+        self.assertIn("0009-contributor-rights-and-trust", data["priority_needs"])
 
     def test_open_needs_are_structured(self) -> None:
         records = needs()
@@ -65,7 +67,7 @@ class CatalogTests(unittest.TestCase):
 
     def test_capital_path_starts_with_evidence_not_currency(self) -> None:
         data = capital_build_path()
-        self.assertEqual(data["priority_needs"][0]["id"], "0002-contribution-receipts")
+        self.assertEqual(data["priority_needs"][0]["id"], "0003-agreements-and-claims")
         self.assertEqual(data["ordered_phases"][0], "evidence foundation")
         self.assertIn("Do not issue CORA", data["boundary"])
 

@@ -9,6 +9,8 @@
 5. Request review from someone who did not produce the contribution.
 6. After acceptance, submit a machine-readable Contribution Receipt so attribution is preserved.
 
+If you discovered a weakness while exploring the Commons, follow [`IMPROVE.md`](IMPROVE.md) or open an [improvement proposal](https://github.com/jamessunheart/cora-commons/issues/new?template=improvement.yml). The proposal should pair the verified gap with the smallest safe solution, while preserving uncertainty and human approval.
+
 ## Pull request requirements
 
 A pull request should state:
@@ -32,6 +34,10 @@ A merged receipt establishes durable attribution and evidence state. It does not
 ## Non-code contributions
 
 Research, designs, referrals, compute, physical assets and services can begin as issues containing enough evidence for another person to inspect. Do not publish private records, credentials, contracts, beneficiary details or financial account information.
+
+## Rights and licensing
+
+Read [`TRUST.md`](TRUST.md) before contributing intellectual property. Repository contributions must be material the contributor is authorized to share under the repository's MIT license. Resource offers, private knowledge, personal data, trademarks, physical assets and services require separate explicit terms and are not transferred merely by opening an issue.
 
 ## Conduct
 

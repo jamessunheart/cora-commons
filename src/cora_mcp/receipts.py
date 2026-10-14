@@ -133,6 +133,7 @@ def validate_receipt(data: object, filename: str | None = None) -> list[str]:
     else:
         reviewer_id = _required_string(review, "reviewer_id", errors, "review.")
         _required_string(review, "reviewer_name", errors, "review.")
+        _required_string(review, "independence_statement", errors, "review.")
         if reviewer_id and reviewer_id in contributor_ids:
             errors.append("reviewer_id must not be a contributor id")
         if review.get("decision") != "ACCEPTED":

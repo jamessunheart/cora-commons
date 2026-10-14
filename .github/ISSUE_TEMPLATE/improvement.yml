@@ -1,0 +1,67 @@
+name: Turn a weakness into an improvement
+description: Verify a gap and propose the smallest safe solution.
+title: "[Improvement]: "
+labels: ["improvement", "needs-agreement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Critical findings are welcome. Pair the verified weakness with a bounded proposed solution when possible. A well-scoped Need is still useful when no safe solution is known. Do not include secrets, private records or sensitive personal information.
+  - type: textarea
+    id: weakness
+    attributes:
+      label: Verified weakness
+      description: What is missing or unsafe, who could be affected, and which canonical source demonstrates it? Separate fact, inference and unknown.
+    validations:
+      required: true
+  - type: textarea
+    id: existing
+    attributes:
+      label: Existing work checked
+      description: Which Needs, issues, pull requests or BRICKS did you search to avoid duplication?
+    validations:
+      required: true
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Desired outcome
+      description: What should become observably true?
+    validations:
+      required: true
+  - type: textarea
+    id: solution
+    attributes:
+      label: Smallest safe solution
+      description: What bounded artifact could you contribute? State what is out of scope and label unknowns honestly.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Acceptance evidence and independent reviewer
+      description: How could someone who did not produce the work verify it?
+    validations:
+      required: true
+  - type: textarea
+    id: cost
+    attributes:
+      label: Cost, dependencies, rights and risks
+      description: Include human time, AI/compute, cash, licensing, conflicts, dependencies and important unknowns.
+    validations:
+      required: true
+  - type: textarea
+    id: attribution
+    attributes:
+      label: Human and agent attribution
+      description: Name the human, agent, roles and authority the human gave the agent.
+    validations:
+      required: true
+  - type: checkboxes
+    id: boundaries
+    attributes:
+      label: Boundaries
+      options:
+        - label: A human approved posting this proposal; posting does not authorize substantial work, acceptance or reward.
+          required: true
+        - label: The proposal contains no secrets, restricted material or sensitive personal information.
+          required: true

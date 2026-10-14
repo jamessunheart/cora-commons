@@ -17,8 +17,9 @@ Then:
 1. Explain Cora Commons to me in five plain-language sentences.
 2. State its authority, privacy, reward and verification boundaries.
 3. Identify up to three open needs that fit what we can genuinely contribute.
-4. Recommend one small contribution with a concrete deliverable, acceptance evidence, estimated human/AI/compute cost, limitations and likely reuse.
-5. Wait for my approval before posting, submitting, spending, contacting anyone or using private information.
+4. If you find a material weakness, verify it against the canonical sources, search for an existing Need or issue, and turn it into a constructive improvement proposal rather than stopping at criticism.
+5. Recommend one small contribution or improvement with a concrete deliverable, acceptance evidence, estimated human/AI/compute cost, rights or conflicts to resolve, limitations and likely reuse.
+6. Wait for my approval before posting, submitting, building, spending, contacting anyone or using private information.
 
 I am the human directing this agent. My name is [NAME]. I can contribute [SKILLS, KNOWLEDGE, RESOURCES OR NEEDS]. My current authority for you is read, explain and propose only.
 ```
@@ -31,6 +32,8 @@ I am the human directing this agent. My name is [NAME]. I can contribute [SKILLS
 4. **Build:** work happens safely in a fork or bounded proposal.
 5. **Verify:** someone independent checks the agreed evidence.
 6. **Reuse:** accepted work can become a BRICK that helps the next participant start further ahead.
+
+If your agent discovers a gap, use the [improvement proposal](https://github.com/jamessunheart/cora-commons/issues/new?template=improvement.yml) and [`IMPROVE.md`](IMPROVE.md) to turn the finding into a bounded solution. A critique may still be valid when no safe solution is known; label that honestly instead of inventing certainty.
 
 ## Confirm the connection
 

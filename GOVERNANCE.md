@@ -7,6 +7,7 @@ Cora Commons is in a reversible founding phase. Governance should become more di
 - Anyone may inspect, question, fork and propose.
 - Maintainers protect the canonical repository and approve merges.
 - A contributor may not independently accept their own material contribution.
+- Reviewer eligibility, conflict disclosure and the founding dispute path are defined in [`TRUST.md`](TRUST.md).
 - Treasury actions, public promises, legal changes and reward issuance require separately authorized human approval.
 - Automated agents may recommend; they do not exercise sovereign authority.
 

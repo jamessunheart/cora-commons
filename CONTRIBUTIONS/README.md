@@ -24,7 +24,7 @@ PYTHONPATH=src python -m cora_mcp.receipts validate-all
 - immutable artifact version;
 - delivery time, human/AI/cash cost and unknowns;
 - limitations and risks;
-- independent reviewer, evidence level and evidence links;
+- independent reviewer, conflict statement, evidence level and evidence links;
 - append-only state events;
 - current reward boundary.
 

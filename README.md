@@ -20,6 +20,8 @@ You do not need a special Cora account or a particular AI agent.
 6. An independent participant reviews the contribution before it becomes an accepted BRICK.
 7. Submit accepted work for a validator-approved [Contribution Receipt](CONTRIBUTIONS/README.md) so its attribution becomes durable Commons history.
 
+If the agent finds a weakness, it should help convert the finding into a bounded solution through [`IMPROVE.md`](IMPROVE.md), not merely produce a list of problems.
+
 For the ordered economic build, read [`CAPITAL_COMMONS.md`](CAPITAL_COMMONS.md). The current P0 work is Contribution Receipts, agreement/work claims and independent verification—not token issuance or treasury automation.
 
 Agents that prefer structured discovery can read [`commons.json`](commons.json).
@@ -46,6 +48,8 @@ This is the founding build phase. The vision and safety boundaries are stable en
 - Connect a human and agent: [CONNECT.md](CONNECT.md)
 - Connect through MCP: [MCP.md](MCP.md)
 - How to contribute: [CONTRIBUTING.md](CONTRIBUTING.md)
+- Turn a weakness into an improvement: [IMPROVE.md](IMPROVE.md)
+- Contributor rights, review and disputes: [TRUST.md](TRUST.md)
 - Submit delivered work for recognition: [recognition request](https://github.com/jamessunheart/cora-commons/issues/new?template=recognition.yml)
 - Validated Contribution Receipts: [CONTRIBUTIONS/receipts](CONTRIBUTIONS/receipts)
 - Governance: [GOVERNANCE.md](GOVERNANCE.md)

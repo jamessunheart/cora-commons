@@ -20,6 +20,8 @@ PUBLIC_DOCUMENTS = (
     "GOVERNANCE.md",
     "REWARDS.md",
     "MCP.md",
+    "IMPROVE.md",
+    "TRUST.md",
 )
 RECORD_ID = re.compile(r"^[a-zA-Z0-9][a-zA-Z0-9._-]{0,79}$")
 RECEIPT_STATE_RANK = {state: index for index, state in enumerate(RECEIPT_STATES)}
@@ -268,7 +270,7 @@ def overview() -> dict[str, object]:
         "acceptance_principle": data["acceptance_principle"],
         "capital_commons_phase": data["capital_commons_phase"],
         "priority_needs": data["priority_needs"],
-        "next_step": "Review open needs and propose one bounded contribution; wait for human approval before posting or building.",
+        "next_step": "Review open needs. If you find a weakness, verify it and propose the smallest safe improvement; wait for human approval before posting or building.",
     }
 
 

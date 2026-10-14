@@ -28,7 +28,7 @@ from .catalog import (
 
 mcp = MCPServer(
     "Cora Commons",
-    version="0.5.0",
+    version="0.6.0",
     website_url="https://fullpotential.com/coracommons/",
 )
 
@@ -57,6 +57,18 @@ def agent_instructions() -> str:
 def capital_commons_roadmap() -> str:
     """Ordered build path from verified contributions to usable shared capital."""
     return read_text("CAPITAL_COMMONS.md")
+
+
+@mcp.resource("cora://improve")
+def improvement_guide() -> str:
+    """Guide for converting a verified weakness into a bounded solution."""
+    return read_text("IMPROVE.md")
+
+
+@mcp.resource("cora://trust")
+def trust_policy() -> str:
+    """Current contributor-rights, independent-review and dispute boundary."""
+    return read_text("TRUST.md")
 
 
 @mcp.resource("cora://needs/{need_id}")
@@ -236,6 +248,64 @@ def contribution_path() -> dict[str, object]:
 
 
 @mcp.tool(annotations=READ_ONLY)
+def improvement_path(
+    weakness: str,
+    human: str,
+    agent: str,
+    desired_outcome: str,
+    smallest_solution: str,
+    acceptance_evidence: str,
+    expected_cost_and_risks: str,
+    existing_work_checked: str = "Not yet checked",
+) -> dict[str, object]:
+    """Turn a weakness into an unposted, human-approved improvement draft."""
+    fields = {
+        "weakness": weakness,
+        "human": human,
+        "agent": agent,
+        "desired_outcome": desired_outcome,
+        "smallest_solution": smallest_solution,
+        "acceptance_evidence": acceptance_evidence,
+        "expected_cost_and_risks": expected_cost_and_risks,
+    }
+    missing = [name.replace("_", " ") for name, value in fields.items() if not value.strip()]
+    draft = f"""# Improvement proposal
+
+## Verified weakness
+{weakness}
+
+## Existing work checked
+{existing_work_checked}
+
+## Desired outcome
+{desired_outcome}
+
+## Smallest safe solution
+{smallest_solution}
+
+## Acceptance evidence
+{acceptance_evidence}
+
+## Cost, dependencies, rights and risks
+{expected_cost_and_risks}
+
+## Attribution and authority
+- Human: {human}
+- Agent: {agent}
+- Authority: draft only; human approval required before posting or building
+"""
+    return {
+        "complete": not missing,
+        "missing": missing,
+        "draft_markdown": draft,
+        "status": "draft_only",
+        "submit": manifest()["improvement_submission"],
+        "next_step": "Search current Needs and issues, then ask the directing human whether to post this draft or revise it.",
+        "boundary": "Finding a weakness and drafting a solution are not authority to post, build, accept, fund or reward it.",
+    }
+
+
+@mcp.tool(annotations=READ_ONLY)
 def capital_commons_build_path() -> dict[str, object]:
     """Return the ordered Capital Commons phases and current priority Needs."""
     return capital_build_path()
@@ -289,13 +359,14 @@ def join_cora_commons(human_name: str, contribution: str = "not yet known") -> s
     return f"""You are assisting {human_name} in exploring Cora Commons.
 Their possible contribution is: {contribution}.
 
-Read cora://manifest, cora://connect, cora://agents and cora://capital. Then call
-understand_commons, list_open_needs, contribution_path, recognition_path and
+Read cora://manifest, cora://connect, cora://agents, cora://capital, cora://improve
+and cora://trust. Then call understand_commons, list_open_needs, contribution_path,
+improvement_path when you find a material weakness, recognition_path and
 capital_commons_build_path.
 Explain the Commons in five plain-language
 sentences and recommend one small contribution with a deliverable, acceptance evidence,
 estimated human/AI/compute cost, limitations and likely reuse. Wait for explicit human
-approval before posting, submitting, spending, contacting anyone or using private data."""
+approval before posting, submitting, building, spending, contacting anyone or using private data."""
 
 
 def parse_args() -> argparse.Namespace:

@@ -37,6 +37,7 @@
   "review": {
     "reviewer_id": "reviewer-example",
     "reviewer_name": "Independent Example Reviewer",
+    "independence_statement": "The reviewer did not produce, operate or materially direct the contribution and reports no financial, employment, family, reciprocal-review or reward conflict.",
     "reviewed_at": "2026-10-13T14:00:00Z",
     "decision": "ACCEPTED",
     "evidence_level": "WORKS",

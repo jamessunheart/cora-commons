@@ -24,6 +24,7 @@ class MCPProtocolTests(unittest.IsolatedAsyncioTestCase):
                     "validate_contribution_proposal",
                     "commons_pulse",
                     "contribution_path",
+                    "improvement_path",
                     "capital_commons_build_path",
                     "list_contribution_receipts",
                     "get_contribution_receipt",
@@ -42,7 +43,7 @@ class MCPProtocolTests(unittest.IsolatedAsyncioTestCase):
             prompts = await client.list_prompts()
             self.assertEqual(
                 [str(resource.uri) for resource in resources.resources],
-                ["cora://manifest", "cora://connect", "cora://agents", "cora://capital"],
+                ["cora://manifest", "cora://connect", "cora://agents", "cora://capital", "cora://improve", "cora://trust"],
             )
             self.assertEqual(
                 [str(template.uri_template) for template in templates.resource_templates],
@@ -106,6 +107,22 @@ class MCPProtocolTests(unittest.IsolatedAsyncioTestCase):
             path = await client.call_tool("recognition_path", {})
             self.assertIn("recognition.yml", path.structured_content["submit"])
             self.assertIn("commits", path.structured_content["boundary"])
+
+            improvement = await client.call_tool(
+                "improvement_path",
+                {
+                    "weakness": "Contributor rights are unclear for private knowledge",
+                    "human": "Example Human",
+                    "agent": "Example Agent",
+                    "desired_outcome": "Contributors can predict the rights result",
+                    "smallest_solution": "Document four contribution scenarios",
+                    "acceptance_evidence": "An independent reviewer resolves all four scenarios",
+                    "expected_cost_and_risks": "Two review hours; legal review remains required",
+                },
+            )
+            self.assertTrue(improvement.structured_content["complete"])
+            self.assertEqual(improvement.structured_content["status"], "draft_only")
+            self.assertIn("improvement.yml", improvement.structured_content["submit"])
 
 
 if __name__ == "__main__":

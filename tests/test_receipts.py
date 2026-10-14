@@ -21,6 +21,11 @@ class ReceiptValidationTests(unittest.TestCase):
         receipt["review"]["reviewer_id"] = "human-example"
         self.assertIn("reviewer_id must not be a contributor id", validate_receipt(receipt))
 
+    def test_requires_independence_statement(self) -> None:
+        receipt = copy.deepcopy(EXAMPLE)
+        del receipt["review"]["independence_statement"]
+        self.assertIn("review.independence_statement must be a non-empty string", validate_receipt(receipt))
+
     def test_rejects_recognition_only_cora_amount(self) -> None:
         receipt = copy.deepcopy(EXAMPLE)
         receipt["reward"]["cora_calculated"] = 10
