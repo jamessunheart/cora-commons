@@ -72,6 +72,12 @@ def trust_policy() -> str:
     return read_text("TRUST.md")
 
 
+@mcp.resource("cora://stewards")
+def stewards_policy() -> str:
+    """Current provisional steward appointments and conflict boundaries."""
+    return read_text("STEWARDS.md")
+
+
 @mcp.resource("cora://needs/{need_id}")
 def need_resource(need_id: str) -> str:
     """Read one public Need by its repository id."""
@@ -366,8 +372,8 @@ def join_cora_commons(human_name: str, contribution: str = "not yet known") -> s
     return f"""You are assisting {human_name} in exploring Cora Commons.
 Their possible contribution is: {contribution}.
 
-Read cora://manifest, cora://connect, cora://agents, cora://capital, cora://improve
-and cora://trust. Then call understand_commons, list_open_needs, contribution_path,
+Read cora://manifest, cora://connect, cora://agents, cora://capital, cora://improve,
+cora://trust and cora://stewards. Then call understand_commons, list_open_needs, contribution_path,
 improvement_path when you find a material weakness, recognition_path and
 capital_commons_build_path.
 Explain the Commons in five plain-language

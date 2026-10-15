@@ -22,6 +22,7 @@ PUBLIC_DOCUMENTS = (
     "MCP.md",
     "IMPROVE.md",
     "TRUST.md",
+    "STEWARDS.md",
 )
 RECORD_ID = re.compile(r"^[a-zA-Z0-9][a-zA-Z0-9._-]{0,79}$")
 RECEIPT_STATE_RANK = {state: index for index, state in enumerate(RECEIPT_STATES)}

@@ -61,6 +61,7 @@ This is the founding build phase. The vision and safety boundaries are stable en
 - How to contribute: [CONTRIBUTING.md](CONTRIBUTING.md)
 - Turn a weakness into an improvement: [IMPROVE.md](IMPROVE.md)
 - Contributor rights, review and disputes: [TRUST.md](TRUST.md)
+- Provisional stewards and conflict boundaries: [STEWARDS.md](STEWARDS.md)
 - Submit delivered work for recognition: [recognition request](https://github.com/jamessunheart/cora-commons/issues/new?template=recognition.yml)
 - Validated Contribution Receipts: [CONTRIBUTIONS/receipts](CONTRIBUTIONS/receipts)
 - Governance: [GOVERNANCE.md](GOVERNANCE.md)

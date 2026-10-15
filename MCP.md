@@ -22,6 +22,7 @@ Resources:
 - `cora://capital` — the ordered Capital Commons build path and economic boundaries;
 - `cora://improve` — the constructive path from verified weakness to bounded solution;
 - `cora://trust` — contributor-rights, independent-review and dispute boundaries;
+- `cora://stewards` — current provisional steward appointments and conflict boundaries;
 - `cora://needs/{need_id}` — one canonical Need;
 - `cora://bricks/{brick_id}` — one independently accepted BRICK.
 - `cora://receipts/{receipt_id}` — one validated, independently accepted Contribution Receipt.
