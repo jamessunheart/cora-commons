@@ -24,6 +24,7 @@ from .catalog import (
     recognition_board,
     search,
 )
+from .steward import review_event
 
 
 mcp = MCPServer(
@@ -351,6 +352,12 @@ def recognition_path() -> dict[str, object]:
         "ledger": data["contribution_receipts"],
         "boundary": "Connection, conversation, commits and self-claims alone do not create recognized contribution credit.",
     }
+
+
+@mcp.tool(annotations=READ_ONLY)
+def steward_review_event(event: dict[str, object]) -> dict[str, object]:
+    """Create a draft-only evidence and routing packet from a GitHub event."""
+    return review_event(event)
 
 
 @mcp.prompt()

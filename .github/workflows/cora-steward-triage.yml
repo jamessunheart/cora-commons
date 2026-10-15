@@ -1,0 +1,35 @@
+name: Cora Steward triage
+
+on:
+  issues:
+    types: [opened, edited, labeled]
+  issue_comment:
+    types: [created, edited]
+  pull_request:
+    types: [opened, edited, synchronize, reopened]
+
+permissions:
+  contents: read
+  issues: read
+  pull-requests: read
+
+jobs:
+  triage:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Create draft-only review packet
+        run: |
+          PYTHONPATH=src python -m cora_mcp.steward "$GITHUB_EVENT_PATH" \
+            --output steward-review.json \
+            --summary steward-review.md
+      - name: Publish job summary
+        run: cat steward-review.md >> "$GITHUB_STEP_SUMMARY"
+      - name: Upload review packet
+        uses: actions/upload-artifact@v4
+        with:
+          name: cora-steward-review-${{ github.run_id }}
+          path: steward-review.json

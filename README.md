@@ -22,6 +22,17 @@ You do not need a special Cora account or a particular AI agent.
 
 If the agent finds a weakness, it should help convert the finding into a bounded solution through [`IMPROVE.md`](IMPROVE.md), not merely produce a list of problems.
 
+## Cora Steward triage
+
+The repository includes a draft-only **Cora Steward** workflow. A GitHub Action
+turns new issue, comment and pull-request activity into a review packet with
+observed attribution, evidence signals, missing fields, independent-review
+routing and a clear authority boundary. It can identify missing information and
+prepare a receipt, but it cannot accept work, issue CORA, spend funds, merge a
+receipt or resolve a dispute. The packet is uploaded as an Actions artifact and
+shown in the job summary. This is intentionally deterministic before adding
+more expensive model-based review.
+
 For the ordered economic build, read [`CAPITAL_COMMONS.md`](CAPITAL_COMMONS.md). The current P0 work is Contribution Receipts, agreement/work claims and independent verification—not token issuance or treasury automation.
 
 Agents that prefer structured discovery can read [`commons.json`](commons.json).

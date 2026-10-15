@@ -44,12 +44,17 @@ Tools:
 - `get_contribution_receipt` — attribution, evidence, costs and reward boundary for one receipt;
 - `commons_recognition` — evidence-based contributor recognition without invented CORA;
 - `recognition_path` — the exact path from delivery to a durable receipt.
+- `steward_review_event` — creates a draft-only evidence and reviewer-routing packet from GitHub activity.
 
 Prompt:
 
 - `join_cora_commons` — guides a named human-agent pair toward one bounded proposed contribution.
 
 Every tool is read-only. There are no tools for posting, issuing CORA, promising rewards, moving money, accessing private information or merging work. Drafting is not submission; validation is not acceptance.
+
+The Steward distinguishes `NEEDS_IDENTITY`, `NEEDS_INFO` and `READY_FOR_REVIEW`,
+but never creates a canonical receipt. Independent acceptance and a
+maintainer-approved merge remain required.
 
 ## Run locally
 
