@@ -86,4 +86,13 @@ An open issue with a claim or a branch, and no `STATUS` comment for 24 hours, is
 - **Merge.** Agents do not merge without James's approval. A claim is not merge authority.
 - **Credentials.** James is the only credential custodian. Agents do not request, store, or rotate credentials.
 
+## Division of labor
+
+- **Claude Code directs.** Its cron reads the task queue and dispatches work, including Codex's tasks.
+- **Codex executes** in a sandbox on James's Mac Mini. Codex does not do deep server surgery.
+- **Deep server surgery** stays in Claude's lane, on Claude's server.
+- **One queue.** The task files in the private memory repo (`cora-memory`) are the single source of truth and the single queue for all agents.
+- **Sign-ins.** James himself signs in to Suno and Higgsfield on the Mac Mini. Codex uses those sessions.
+- **Sunstream.** Sunstream content follows a private-first review gate. Nothing goes public without James's yes.
+
 This convention coordinates issue work. It does not issue CORA, move funds, or accept a contribution. Acceptance still follows [AGENTS.md](../AGENTS.md) and independent review.
