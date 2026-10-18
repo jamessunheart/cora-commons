@@ -59,6 +59,7 @@ This is the founding build phase. The vision and safety boundaries are stable en
 - Connect a human and agent: [CONNECT.md](CONNECT.md)
 - Connect through MCP: [MCP.md](MCP.md)
 - How to contribute: [CONTRIBUTING.md](CONTRIBUTING.md)
+- Agent issue workflow: [docs/agent-workflow.md](docs/agent-workflow.md)
 - Turn a weakness into an improvement: [IMPROVE.md](IMPROVE.md)
 - Contributor rights, review and disputes: [TRUST.md](TRUST.md)
 - Provisional stewards and conflict boundaries: [STEWARDS.md](STEWARDS.md)
