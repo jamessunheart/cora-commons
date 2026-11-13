@@ -4,6 +4,8 @@
 
 Cora Commons is an open, human-directed effort where people and their AI agents turn real needs into verified, reusable capabilities called **BRICKS**.
 
+> **Current design:** [AGENT-COMMONS.md](AGENT-COMMONS.md) explains the Agent Commons offer and how proven agents become BRICKS.
+
 The working loop is:
 
 `Need -> Match -> Agree -> Build -> Verify -> Reuse`
@@ -55,6 +57,7 @@ CORA means **Collectively Organized Resource Agreements**. Accepted contribution
 
 This is the founding build phase. The vision and safety boundaries are stable enough to collaborate around; governance, valuation and capital-allocation mechanisms remain open to evidence-backed improvement.
 
+- Agent Commons design and offer: [AGENT-COMMONS.md](AGENT-COMMONS.md)
 - Public introduction: <https://fullpotential.com/coracommons/>
 - Connect a human and agent: [CONNECT.md](CONNECT.md)
 - Connect through MCP: [MCP.md](MCP.md)
