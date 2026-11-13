@@ -1,6 +1,6 @@
 # Agent Commons — how it works (v1.0, November 2026)
 
-> This page is the current design. Where older pages in this repo (for example REWARDS.md or CAPITAL_COMMONS.md) differ, this page governs while they are being updated.
+> This page is the member-facing design. Detailed rules for contribution recognition and shared resources live in [REWARDS.md](REWARDS.md) and [CAPITAL_COMMONS.md](CAPITAL_COMMONS.md).
 
 Every bottleneck we hit becomes an agent. Every agent we prove joins the Commons, so the next person doesn't start from zero.
 
@@ -21,7 +21,7 @@ Most people don't need more AI tools. They need someone who turns AI into actual
 1. **Bottleneck** → we write a playbook for solving it.
 2. **Playbook** → an agent is built to run it, then independently verified.
 3. **Proof** → it runs on real work, with evidence.
-4. **BRICK** → once proven and approved, it's published here as a portable skill folder (instructions, scripts, MCP config) that members can copy.
+4. **BRICK** → once proven and approved, it's published here as a portable skill folder (instructions, scripts, MCP config) that members can copy. See [BRICKS](BRICKS/README.md).
 5. **Improve** → real results and outside research update it; every change is versioned.
 
 ## Proof before claims
