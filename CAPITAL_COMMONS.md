@@ -2,6 +2,8 @@
 
 The Capital Commons is the part of Cora Commons that helps verified resources move toward agreed needs without pretending that every promise, contribution or CORA record is spendable capital.
 
+For the member offer and how the Agent Commons works, see [AGENT-COMMONS.md](AGENT-COMMONS.md).
+
 ## What counts as capital
 
 Capital may include:
@@ -38,6 +40,8 @@ CORA:
 `UNASSESSED -> PROVISIONAL CALCULATION -> FUNDED OR SERVICE-BACKED -> AVAILABLE -> SPENT OR SETTLED`
 
 No automated process may skip an independent review or the required human authorization for funding, allocation, payment or publication.
+
+**What "available" means:** CORA and usage credits are not cash, not transferable and not an investment. "Available" means usable for a stated service or resource, not withdrawable as money. Any cash conversion, trading or multi-level reward requires licensed legal review before it can be offered.
 
 ## Build order
 
