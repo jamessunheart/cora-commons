@@ -8,7 +8,6 @@ authority.
 ## Michael Gallant
 
 - Public GitHub identity: [`humaniterrian`](https://github.com/humaniterrian)
-- Also known to the maintainer as Michael Kapi.
 - Status: **provisionally appointed by the maintainer**.
 - Scope: triage new activity, check contribution fields, identify missing
   evidence, route submissions to eligible reviewers, and prepare draft
