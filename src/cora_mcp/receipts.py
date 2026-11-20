@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import math
 import re
 from datetime import datetime
 from pathlib import Path
@@ -24,6 +25,15 @@ def _is_timestamp(value: object) -> bool:
     except ValueError:
         return False
     return True
+
+
+def _is_non_negative_number(value: object) -> bool:
+    """Return whether value is a finite JSON number greater than or equal to zero."""
+    if isinstance(value, bool) or not isinstance(value, (int, float)):
+        return False
+    if isinstance(value, float) and not math.isfinite(value):
+        return False
+    return value >= 0
 
 
 def _required_string(record: dict[str, Any], field: str, errors: list[str], prefix: str = "") -> str:
@@ -71,7 +81,7 @@ def validate_receipt(data: object, filename: str | None = None) -> list[str]:
             _required_string(contributor, "name", errors, prefix)
             _required_string(contributor, "role", errors, prefix)
             kind = contributor.get("kind")
-            if kind not in {"human", "agent"}:
+            if not isinstance(kind, str) or kind not in {"human", "agent"}:
                 errors.append(f"{prefix}kind must be human or agent")
             if contributor_id:
                 if contributor_id in contributor_ids:
@@ -113,7 +123,7 @@ def validate_receipt(data: object, filename: str | None = None) -> list[str]:
             errors.append("delivery.capital_consumed must be an object")
         else:
             hours = capital.get("human_hours")
-            if hours is not None and (not isinstance(hours, (int, float)) or hours < 0):
+            if hours is not None and not _is_non_negative_number(hours):
                 errors.append("delivery.capital_consumed.human_hours must be non-negative or null")
             _required_string(capital, "ai_compute", errors, "delivery.capital_consumed.")
             cash = capital.get("cash")
@@ -121,10 +131,11 @@ def validate_receipt(data: object, filename: str | None = None) -> list[str]:
                 errors.append("delivery.capital_consumed.cash must be an object")
             else:
                 amount = cash.get("amount")
-                if amount is not None and (not isinstance(amount, (int, float)) or amount < 0):
+                if amount is not None and not _is_non_negative_number(amount):
                     errors.append("delivery.capital_consumed.cash.amount must be non-negative or null")
                 _required_string(cash, "currency", errors, "delivery.capital_consumed.cash.")
-                if cash.get("status") not in {"known", "estimated", "unknown"}:
+                cash_status = cash.get("status")
+                if not isinstance(cash_status, str) or cash_status not in {"known", "estimated", "unknown"}:
                     errors.append("delivery.capital_consumed.cash.status must be known, estimated or unknown")
 
     review = data.get("review")
@@ -138,7 +149,8 @@ def validate_receipt(data: object, filename: str | None = None) -> list[str]:
             errors.append("reviewer_id must not be a contributor id")
         if review.get("decision") != "ACCEPTED":
             errors.append("review.decision must be ACCEPTED before a receipt is merged")
-        if review.get("evidence_level") not in EVIDENCE_LEVELS:
+        evidence_level = review.get("evidence_level")
+        if not isinstance(evidence_level, str) or evidence_level not in EVIDENCE_LEVELS:
             errors.append("review.evidence_level must be EXISTS, RENDERS, WORKS or USABLE")
         if not _is_timestamp(review.get("reviewed_at")):
             errors.append("review.reviewed_at must be an ISO timestamp")
@@ -153,12 +165,12 @@ def validate_receipt(data: object, filename: str | None = None) -> list[str]:
         errors.append("reward must be an object")
     else:
         reward_status = reward.get("status")
-        if reward_status not in REWARD_STATES:
+        if not isinstance(reward_status, str) or reward_status not in REWARD_STATES:
             errors.append("reward.status is invalid")
         cora_fields = ("cora_calculated", "cora_funded", "cora_available")
         for field in cora_fields:
             value = reward.get(field)
-            if value is not None and (not isinstance(value, (int, float)) or value < 0):
+            if value is not None and not _is_non_negative_number(value):
                 errors.append(f"reward.{field} must be non-negative or null")
         if reward_status == "RECOGNITION_ONLY" and any(reward.get(field) is not None for field in cora_fields):
             errors.append("recognition-only receipts cannot report calculated, funded or available CORA")
