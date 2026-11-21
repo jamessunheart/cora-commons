@@ -1,0 +1,8 @@
+{
+  "fuel_pct": 10,
+  "tasks": [
+    {"id": "T-1", "tags": [], "sort_order": 1, "blocked_reasons": ["waiting on review", "waiting on review"]}
+  ],
+  "workers": [],
+  "commitments": []
+}

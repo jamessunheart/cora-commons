@@ -1,0 +1,6 @@
+{
+  "fuel_pct": 10,
+  "tasks": [],
+  "workers": [],
+  "commitments": [{"id": "C-1", "opened": "2026-11-01T00:00:00Z", "last_moved": "2026-11-19T10:00:00Z"}]
+}

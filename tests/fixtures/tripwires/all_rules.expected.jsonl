@@ -1,0 +1,6 @@
+{"kind": "pause_non_foundation", "reason": "fuel_pct 85 >= 80 before 18:00 UTC", "target": null}
+{"kind": "park", "reason": "blocked repeatedly by the same reason: waiting on API key x2", "target": "T-101"}
+{"kind": "ensure_foundation", "reason": "blocks 3 tasks: T-101, T-102, T-103", "target": "waiting on API key"}
+{"kind": "restart", "reason": "no write for 31 minutes > 3 x grace of 10 minutes", "target": "indexer"}
+{"kind": "promote", "reason": "tagged foundation but ranked 6 by sort_order, outside the top 5", "target": "T-106"}
+{"kind": "flag_red", "reason": "no movement since last_moved 2026-11-19T09:59:59Z, more than 48h", "target": "C-1"}

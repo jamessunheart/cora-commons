@@ -1,0 +1,6 @@
+{
+  "fuel_pct": 10,
+  "tasks": [],
+  "workers": [{"name": "indexer", "minutes_since_write": 30, "grace_minutes": 10}],
+  "commitments": []
+}

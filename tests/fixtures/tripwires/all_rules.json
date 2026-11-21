@@ -1,0 +1,19 @@
+{
+  "fuel_pct": 85,
+  "tasks": [
+    {"id": "T-101", "tags": [], "sort_order": 1, "blocked_reasons": ["waiting on API key", "waiting on API key"]},
+    {"id": "T-102", "tags": [], "sort_order": 2, "blocked_reasons": ["waiting on API key", "flaky CI"]},
+    {"id": "T-103", "tags": [], "sort_order": 3, "blocked_reasons": ["waiting on API key", "flaky CI"]},
+    {"id": "T-104", "tags": [], "sort_order": 4, "blocked_reasons": []},
+    {"id": "T-105", "tags": ["foundation"], "sort_order": 5, "blocked_reasons": []},
+    {"id": "T-106", "tags": ["foundation"], "sort_order": 6, "blocked_reasons": []}
+  ],
+  "workers": [
+    {"name": "indexer", "minutes_since_write": 31, "grace_minutes": 10},
+    {"name": "mailer", "minutes_since_write": 30, "grace_minutes": 10}
+  ],
+  "commitments": [
+    {"id": "C-1", "opened": "2026-11-01T00:00:00Z", "last_moved": "2026-11-19T09:59:59Z"},
+    {"id": "C-2", "opened": "2026-11-01T00:00:00Z", "last_moved": "2026-11-19T10:00:00Z"}
+  ]
+}

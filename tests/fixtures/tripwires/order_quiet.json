@@ -1,0 +1,13 @@
+{
+  "fuel_pct": 10,
+  "tasks": [
+    {"id": "T-1", "tags": [], "sort_order": 1, "blocked_reasons": []},
+    {"id": "T-2", "tags": [], "sort_order": 2, "blocked_reasons": []},
+    {"id": "T-3", "tags": [], "sort_order": 3, "blocked_reasons": []},
+    {"id": "T-4", "tags": [], "sort_order": 4, "blocked_reasons": []},
+    {"id": "T-5", "tags": ["foundation"], "sort_order": 5, "blocked_reasons": []},
+    {"id": "T-6", "tags": [], "sort_order": 6, "blocked_reasons": []}
+  ],
+  "workers": [],
+  "commitments": []
+}

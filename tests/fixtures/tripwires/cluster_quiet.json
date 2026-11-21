@@ -1,0 +1,10 @@
+{
+  "fuel_pct": 10,
+  "tasks": [
+    {"id": "T-1", "tags": [], "sort_order": 1, "blocked_reasons": ["db migration"]},
+    {"id": "T-2", "tags": [], "sort_order": 2, "blocked_reasons": ["db migration"]},
+    {"id": "T-3", "tags": [], "sort_order": 3, "blocked_reasons": []}
+  ],
+  "workers": [],
+  "commitments": []
+}
