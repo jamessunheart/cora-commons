@@ -1,0 +1,402 @@
+{
+  "ev-001": {
+    "noise": false,
+    "noise_reason": null,
+    "priority": "high"
+  },
+  "ev-002": {
+    "noise": false,
+    "noise_reason": null,
+    "priority": "high"
+  },
+  "ev-003": {
+    "noise": false,
+    "noise_reason": null,
+    "priority": "high"
+  },
+  "ev-004": {
+    "noise": false,
+    "noise_reason": null,
+    "priority": "high"
+  },
+  "ev-005": {
+    "noise": false,
+    "noise_reason": null,
+    "priority": "high"
+  },
+  "ev-006": {
+    "noise": false,
+    "noise_reason": null,
+    "priority": "high"
+  },
+  "ev-007": {
+    "noise": false,
+    "noise_reason": null,
+    "priority": "high"
+  },
+  "ev-008": {
+    "noise": false,
+    "noise_reason": null,
+    "priority": "high"
+  },
+  "ev-009": {
+    "noise": false,
+    "noise_reason": null,
+    "priority": "high"
+  },
+  "ev-010": {
+    "noise": false,
+    "noise_reason": null,
+    "priority": "high"
+  },
+  "ev-011": {
+    "noise": false,
+    "noise_reason": null,
+    "priority": "high"
+  },
+  "ev-012": {
+    "noise": false,
+    "noise_reason": null,
+    "priority": "high"
+  },
+  "ev-013": {
+    "noise": false,
+    "noise_reason": null,
+    "priority": "medium"
+  },
+  "ev-014": {
+    "noise": false,
+    "noise_reason": null,
+    "priority": "medium"
+  },
+  "ev-015": {
+    "noise": false,
+    "noise_reason": null,
+    "priority": "medium"
+  },
+  "ev-016": {
+    "noise": false,
+    "noise_reason": null,
+    "priority": "medium"
+  },
+  "ev-017": {
+    "noise": false,
+    "noise_reason": null,
+    "priority": "medium"
+  },
+  "ev-018": {
+    "noise": false,
+    "noise_reason": null,
+    "priority": "medium"
+  },
+  "ev-019": {
+    "noise": false,
+    "noise_reason": null,
+    "priority": "medium"
+  },
+  "ev-020": {
+    "noise": false,
+    "noise_reason": null,
+    "priority": "medium"
+  },
+  "ev-021": {
+    "noise": false,
+    "noise_reason": null,
+    "priority": "medium"
+  },
+  "ev-022": {
+    "noise": false,
+    "noise_reason": null,
+    "priority": "medium"
+  },
+  "ev-023": {
+    "noise": false,
+    "noise_reason": null,
+    "priority": "medium"
+  },
+  "ev-024": {
+    "noise": false,
+    "noise_reason": null,
+    "priority": "medium"
+  },
+  "ev-025": {
+    "noise": false,
+    "noise_reason": null,
+    "priority": "medium"
+  },
+  "ev-026": {
+    "noise": false,
+    "noise_reason": null,
+    "priority": "medium"
+  },
+  "ev-027": {
+    "noise": false,
+    "noise_reason": null,
+    "priority": "medium"
+  },
+  "ev-028": {
+    "noise": false,
+    "noise_reason": null,
+    "priority": "medium"
+  },
+  "ev-029": {
+    "noise": false,
+    "noise_reason": null,
+    "priority": "medium"
+  },
+  "ev-030": {
+    "noise": false,
+    "noise_reason": null,
+    "priority": "medium"
+  },
+  "ev-031": {
+    "noise": false,
+    "noise_reason": null,
+    "priority": "medium"
+  },
+  "ev-032": {
+    "noise": false,
+    "noise_reason": null,
+    "priority": "medium"
+  },
+  "ev-033": {
+    "noise": false,
+    "noise_reason": null,
+    "priority": "low"
+  },
+  "ev-034": {
+    "noise": false,
+    "noise_reason": null,
+    "priority": "low"
+  },
+  "ev-035": {
+    "noise": false,
+    "noise_reason": null,
+    "priority": "low"
+  },
+  "ev-036": {
+    "noise": false,
+    "noise_reason": null,
+    "priority": "low"
+  },
+  "ev-037": {
+    "noise": false,
+    "noise_reason": null,
+    "priority": "low"
+  },
+  "ev-038": {
+    "noise": false,
+    "noise_reason": null,
+    "priority": "low"
+  },
+  "ev-039": {
+    "noise": false,
+    "noise_reason": null,
+    "priority": "low"
+  },
+  "ev-040": {
+    "noise": false,
+    "noise_reason": null,
+    "priority": "low"
+  },
+  "ev-041": {
+    "noise": false,
+    "noise_reason": null,
+    "priority": "low"
+  },
+  "ev-042": {
+    "noise": false,
+    "noise_reason": null,
+    "priority": "low"
+  },
+  "ev-043": {
+    "noise": false,
+    "noise_reason": null,
+    "priority": "low"
+  },
+  "ev-044": {
+    "noise": false,
+    "noise_reason": null,
+    "priority": "low"
+  },
+  "ev-045": {
+    "noise": false,
+    "noise_reason": null,
+    "priority": "low"
+  },
+  "ev-046": {
+    "noise": false,
+    "noise_reason": null,
+    "priority": "low"
+  },
+  "ev-047": {
+    "noise": false,
+    "noise_reason": null,
+    "priority": "low"
+  },
+  "ev-048": {
+    "noise": false,
+    "noise_reason": null,
+    "priority": "low"
+  },
+  "ev-049": {
+    "noise": false,
+    "noise_reason": null,
+    "priority": "low"
+  },
+  "ev-050": {
+    "noise": false,
+    "noise_reason": null,
+    "priority": "low"
+  },
+  "ev-051": {
+    "noise": false,
+    "noise_reason": null,
+    "priority": "low"
+  },
+  "ev-052": {
+    "noise": false,
+    "noise_reason": null,
+    "priority": "low"
+  },
+  "ev-053": {
+    "noise": false,
+    "noise_reason": null,
+    "priority": "medium"
+  },
+  "ev-054": {
+    "noise": true,
+    "noise_reason": "empty_body",
+    "priority": null
+  },
+  "ev-055": {
+    "noise": true,
+    "noise_reason": "empty_body",
+    "priority": null
+  },
+  "ev-056": {
+    "noise": true,
+    "noise_reason": "empty_body",
+    "priority": null
+  },
+  "ev-057": {
+    "noise": true,
+    "noise_reason": "empty_body",
+    "priority": null
+  },
+  "ev-058": {
+    "noise": true,
+    "noise_reason": "reaction",
+    "priority": null
+  },
+  "ev-059": {
+    "noise": true,
+    "noise_reason": "reaction",
+    "priority": null
+  },
+  "ev-060": {
+    "noise": true,
+    "noise_reason": "reaction",
+    "priority": null
+  },
+  "ev-061": {
+    "noise": true,
+    "noise_reason": "edit",
+    "priority": null
+  },
+  "ev-062": {
+    "noise": true,
+    "noise_reason": "edit",
+    "priority": null
+  },
+  "ev-063": {
+    "noise": true,
+    "noise_reason": "edit",
+    "priority": null
+  },
+  "ev-064": {
+    "noise": true,
+    "noise_reason": "delete",
+    "priority": null
+  },
+  "ev-065": {
+    "noise": true,
+    "noise_reason": "delete",
+    "priority": null
+  },
+  "ev-066": {
+    "noise": true,
+    "noise_reason": "delete",
+    "priority": null
+  },
+  "ev-067": {
+    "noise": true,
+    "noise_reason": "status_broadcast",
+    "priority": null
+  },
+  "ev-068": {
+    "noise": true,
+    "noise_reason": "status_broadcast",
+    "priority": null
+  },
+  "ev-069": {
+    "noise": true,
+    "noise_reason": "status_broadcast",
+    "priority": null
+  },
+  "ev-070": {
+    "noise": true,
+    "noise_reason": "system",
+    "priority": null
+  },
+  "ev-071": {
+    "noise": true,
+    "noise_reason": "system",
+    "priority": null
+  },
+  "ev-072": {
+    "noise": true,
+    "noise_reason": "system",
+    "priority": null
+  },
+  "ev-073": {
+    "noise": true,
+    "noise_reason": "system",
+    "priority": null
+  },
+  "ev-074": {
+    "noise": true,
+    "noise_reason": "duplicate",
+    "priority": null
+  },
+  "ev-075": {
+    "noise": true,
+    "noise_reason": "duplicate",
+    "priority": null
+  },
+  "ev-076": {
+    "noise": true,
+    "noise_reason": "duplicate",
+    "priority": null
+  },
+  "ev-077": {
+    "noise": true,
+    "noise_reason": "from_me",
+    "priority": null
+  },
+  "ev-078": {
+    "noise": true,
+    "noise_reason": "from_me",
+    "priority": null
+  },
+  "ev-079": {
+    "noise": true,
+    "noise_reason": "from_me",
+    "priority": null
+  },
+  "ev-080": {
+    "noise": true,
+    "noise_reason": "from_me",
+    "priority": null
+  }
+}
